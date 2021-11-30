@@ -10,10 +10,59 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_30_133427) do
+ActiveRecord::Schema.define(version: 2021_11_30_164123) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "itineraries", force: :cascade do |t|
+    t.integer "km"
+    t.string "category"
+    t.text "description"
+    t.string "title"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_itineraries_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.bigint "ride_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["ride_id"], name: "index_messages_on_ride_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "participants", force: :cascade do |t|
+    t.integer "vote"
+    t.bigint "ride_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["ride_id"], name: "index_participants_on_ride_id"
+    t.index ["user_id"], name: "index_participants_on_user_id"
+  end
+
+  create_table "rides", force: :cascade do |t|
+    t.datetime "date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "itinerary_id"
+    t.index ["itinerary_id"], name: "index_rides_on_itinerary_id"
+  end
+
+  create_table "steps", force: :cascade do |t|
+    t.string "address"
+    t.decimal "longitude"
+    t.decimal "latitude"
+    t.bigint "itinerary_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["itinerary_id"], name: "index_steps_on_itinerary_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +72,20 @@ ActiveRecord::Schema.define(version: 2021_11_30_133427) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "age"
+    t.string "level"
+    t.string "url"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "itineraries", "users"
+  add_foreign_key "messages", "rides"
+  add_foreign_key "messages", "users"
+  add_foreign_key "participants", "rides"
+  add_foreign_key "participants", "users"
+  add_foreign_key "rides", "itineraries"
+  add_foreign_key "steps", "itineraries"
 end
