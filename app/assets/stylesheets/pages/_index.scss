@@ -1,5 +1,7 @@
 // Import page-specific CSS files here.
 @import "home";
+@import "profile";
+
 
 body {
   background-color: $green-1;
@@ -8,3 +10,4 @@ body {
 h1, h2, h3, h4, p {
   color: $green-5
 }
+

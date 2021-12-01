@@ -1,6 +1,41 @@
-<h1>Profile page</h1>
-<ul>
-  <% @itineraries.each do |itinerary|  %>
-    <li> <%= itinerary.title %> </li>
-  <% end %>
-</ul>
+<div class = "top-div">
+  <h1><%= current_user.first_name %></h1>
+  <p>Cycling addict !</p>
+  <%= image_tag current_user.url, alt: "user image", width: "100px" %>
+</div>
+
+<div class = "bio">
+ <p> <%= current_user.bio %> </p>
+</div>
+
+
+<div class = "profile-itineraries">
+  <h2>My itineraries</h2>
+  <div class = "itinerary-card row">
+    <% @itineraries.each do |itinerary|  %>
+    <div class="col-sm-12 col-lg-4">
+      <div class = "card p-3">
+        <div class = "card-title d-flex align-items justify-content-start">
+          <%= image_tag current_user.url, alt: "user image", class: "avatar mr-3" %>
+          <h3> <%= itinerary.title %> </h3>
+        </div>
+        <div class = "card-text d-flex align-items justify-content-between px-5">
+          <p> <%= itinerary.km %> </p>
+          <p> <% if itinerary.category == "family" %>
+              <%= image_tag "family bike.png", class: "logo-category family-logo" %>
+              <% elsif itinerary.category == "road bike" %>
+              <%= image_tag "road bike.png", class: "logo-category" %>
+              <% elsif itinerary.category == "mountain bike" %>
+              <%= image_tag "mountain bike.png", class: "logo-category" %>
+              <% end %>
+          </p>
+        </div>
+        <div class = "details-button d-flex">
+          <%= link_to "details", itinerary_path(itinerary), class: "btn btn-outline-primary ml-auto p-2" %>
+        </div>
+    </div>
+     </div> 
+    <% end %>   
+  </div>
+</div>
+
