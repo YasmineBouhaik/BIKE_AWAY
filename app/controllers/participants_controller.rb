@@ -3,7 +3,7 @@ class ParticipantsController < ApplicationController
     @participant = Participant.new(params_participant)
     @ride = Ride.find(params[:ride_id])
     @participant.ride = @ride
-
+    @participant.user = current_user
     if @participant.save
       redirect_to ride_path(@participant)
     else
