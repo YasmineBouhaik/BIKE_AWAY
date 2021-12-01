@@ -1,2 +1,52 @@
-<h2><%= @itinerary.title %></h2>
-#user can choose date
+<div class="container">
+  <div class="d-flex justify-content-between">
+    <h2><%= @itinerary.title %></h2>
+    <%= link_to "Edit", edit_itinerary_path(@itinerary), class:"btn btn-success"%>
+  </div>
+  <div class="card">
+    <br>
+    <br>
+    ceci est une map
+    <br>
+    <br>
+  </div>
+  <div class="row">
+    <div class="col-6 d-flex justify-content-around">
+      <div class="grey-box my-2">
+        <p><%= @itinerary.category %></p>
+      </div>
+    </div>
+    <div class="col-6 d-flex justify-content-around">
+      <div class="grey-box my-2">
+        <p><%= @itinerary.km %></p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6 d-flex justify-content-around">
+      <div class="grey-box my-2">
+        <p>Total participants</p>
+      </div>
+    </div>
+    <div class="col-6 d-flex justify-content-around">
+      <div class="grey-box my-2">
+        <p>Upvotes</p>
+      </div>
+    </div>
+  </div>
+  <h3>Prochains Rides</h3>
+  <div class="row">
+    <% @itinerary.rides.each do |ride|  %>
+      <div class="col-6 d-flex justify-content-around">
+        <div class="grey-box my-2">
+          <p><%= ride.date %><%= ride.participants.count %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <h3>Create a new ride</h3>
+  <%= simple_form_for(@itinerary.rides[0]) do |f| %>
+    <%= f.input :date %>
+    <%= f.submit class:"btn btn-success" %>
+  <%end  %>
+</div>
