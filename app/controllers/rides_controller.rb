@@ -9,18 +9,14 @@ class RidesController < ApplicationController
   end
 
   def create
-    if current_user
-      @ride = Ride.new(params_ride)
-      @itinerary = Itinerary.find(params[:itinerary_id])
-      @ride.itinerary = @itinerary
-      @ride.user = current_user
-      if @ride.save
-        redirect_to itinerary_path(@ride)
-      else
-        render :new
-      end
+    @ride = Ride.new(params_ride)
+    @itinerary = Itinerary.find(params[:itinerary_id])
+    @ride.itinerary = @itinerary
+
+    if @ride.save
+      redirect_to itinerary_path(@ride)
     else
-      redirect_to new_user_session_path
+      render :new
     end
   end
 
@@ -28,7 +24,7 @@ class RidesController < ApplicationController
   private
 
   def params_ride
-    params.require(:ride).permit(:date, :itinerary)
+    params.require(:ride).permit(:date)
   end
 
 end
