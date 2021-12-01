@@ -11,7 +11,6 @@ Rails.application.routes.draw do
 
   resources :itineraries do
     resources :rides, only: :create
-    resources :steps, only: :create
   end
 
   resources :steps, only: :destroy
