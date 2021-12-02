@@ -32,7 +32,6 @@ document.addEventListener('turbolinks:load', () => {
   // map
  
 
-  mapboxgl.accessToken = 'pk.eyJ1IjoibWFyd2E5MSIsImEiOiJja3Ztam1qY3cwYm1oMnNqcGR1djA0bGdxIn0.BqaA-0taDfoqnPqbUykE0Q';
   const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v9',
