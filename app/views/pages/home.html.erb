@@ -1,2 +1,16 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1470920456752-d50214d7ed59?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGN5Y2xpbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=900&q=60);">
+  <div class="container">
+    <div class="text-center">
+     <h1> <strong>Bike Away</strong></h1>
+       <p>
+          <span id="banner-typed-text"></span>
+      </p>
+       <div class="text-center">
+       <%= link_to "Join Trip", rides_path, class: "btn btn-Join" %>
+     </div>
+    </div>
+  </div>
+</div>
+<div class="Map" style="background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)),asset-url('carte.png');">
+  <%= link_to "Create an itinerary", new_itinerary_path, class: "btn btn-Join " %>
+</div>
