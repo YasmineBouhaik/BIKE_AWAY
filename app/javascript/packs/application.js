@@ -7,6 +7,7 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import mapboxgl from 'mapbox-gl';
 
 Rails.start()
 Turbolinks.start()
@@ -28,3 +29,12 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
 });
+  // map
+ 
+
+  const map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v9',
+    center: [ -0.077, 51.533 ],
+    zoom: 12
+  });

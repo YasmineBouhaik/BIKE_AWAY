@@ -18,11 +18,18 @@
     padding-left: 10px;
     color: $green-1;
   }
+
 }
 .details-button{
   text-align: end;
   margin: 10px 30px;
 }
+
+.card {
+  background-color: #A4C3B2;
+  color: #F6FFF8;
+}
+
 .details-button .button{
   font-weight: bold;
   border-radius: 30px;
@@ -31,3 +38,4 @@
   padding: 10px 16px;
   background-color: $green-2;
 }
+
