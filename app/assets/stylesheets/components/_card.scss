@@ -1,6 +1,33 @@
-.itinerary-card{
-    
+.logo-category{
+  width: 60px;
 }
-.avatar-card{
-  display: inline;
+.family-logo{
+  width: 100px;
+}
+.itinerary-card{
+  
+  
+  background-color: $green-4;
+  border-radius: 20px;
+  .card-title h3{
+    color: $green-1;
+    font-weight: bold;
+  }
+  .card-text p{
+    font-size: 20px;
+    padding-left: 10px;
+    color: $green-1;
+  }
+}
+.details-button{
+  text-align: end;
+  margin: 10px 30px;
+}
+.details-button .button{
+  font-weight: bold;
+  border-radius: 30px;
+  text-decoration: none;
+  color: $green-4;
+  padding: 10px 16px;
+  background-color: $green-2;
 }
