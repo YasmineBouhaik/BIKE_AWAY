@@ -2,6 +2,7 @@ class ItinerariesController < ApplicationController
 
   def show
     @itinerary = Itinerary.find(params[:id])
+    @ride = Ride.new              # empty shell for creating rides in itinerary/show
   end
 
   def new
@@ -9,17 +10,13 @@ class ItinerariesController < ApplicationController
   end
 
   def create
-    if current_user
-      @itinerary = Itinerary.new(params_itinerary)
-      @itinerary.user = current_user
+    @itinerary = Itinerary.new(params_itinerary)
+    @itinerary.user = current_user
 
-      if @itinerary.save
-        redirect_to itinerary_path(@itinerary)
-      else
-        render :new
-      end
+    if @itinerary.save
+      redirect_to itinerary_path(@itinerary)
     else
-      redirect_to new_user_session_path
+      render :new
     end
   end
 
