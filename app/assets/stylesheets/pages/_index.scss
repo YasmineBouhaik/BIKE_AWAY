@@ -3,10 +3,16 @@
 @import "profile";
 
 
+
 body {
-  background-color: $green-2;
+  background-color: $green-1;
 }
 
 h1, h2, h3, h4, p {
   color: $green-5
 }
+
+h1 {
+  text-align: center;
+}
+

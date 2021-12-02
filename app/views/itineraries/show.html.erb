@@ -3,10 +3,10 @@
     <h2><%= @itinerary.title %></h2>
     <%= link_to "Edit", edit_itinerary_path(@itinerary), class:"btn btn-success"%>
   </div>
-  <div class="card">
+  <div class="edit-map-container container">
     <br>
     <br>
-    ceci est une map
+    <%= render 'shared/map' %>
     <br>
     <br>
   </div>
@@ -39,13 +39,13 @@
     <% @itinerary.rides.each do |ride|  %>
       <div class="col-6 d-flex justify-content-around">
         <div class="grey-box my-2">
-          <p><%= ride.date %><%= ride.participants.count %></p>
+          <p><%= ride.date %> # <%= ride.participants.count %> # </p>
         </div>
       </div>
     <% end %>
   </div>
   <h3>Create a new ride</h3>
-  <%= simple_form_for(@itinerary.rides[0]) do |f| %>
+  <%= simple_form_for([@itinerary, @ride]) do |f| %>
     <%= f.input :date %>
     <%= f.submit class:"btn btn-success" %>
   <%end  %>

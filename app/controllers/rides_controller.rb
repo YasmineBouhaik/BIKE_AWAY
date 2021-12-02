@@ -12,9 +12,8 @@ class RidesController < ApplicationController
     @ride = Ride.new(params_ride)
     @itinerary = Itinerary.find(params[:itinerary_id])
     @ride.itinerary = @itinerary
-
     if @ride.save
-      redirect_to itinerary_path(@ride)
+      redirect_to itinerary_path(@itinerary)
     else
       render :new
     end
