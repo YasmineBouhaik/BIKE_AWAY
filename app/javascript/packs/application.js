@@ -9,7 +9,7 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import { loadDynamicBannerText } from '../components/banner';
 import mapboxgl from 'mapbox-gl';
-
+import { displayChat, btnClick } from '../components/choose_ride_btn';
 
 
 Rails.start()
@@ -36,8 +36,5 @@ document.addEventListener('turbolinks:load', () => {
 
   initMapbox();
   loadDynamicBannerText();
+  btnClick();
 });
-
-
-
-  

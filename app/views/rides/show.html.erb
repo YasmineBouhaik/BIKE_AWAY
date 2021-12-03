@@ -1,44 +1,50 @@
 <div class="container">
-  <%= render 'shared/map' %>
-  <div class="d-flex justify-content-between">
+  <div>
+    <%= render 'shared/map' %>
+  </div>
+
+  <div class="d-flex my-4 ml-6">
     <h2><%= @ride.itinerary.title %></h2>
   </div>
-  <div class="card">
+
+  <div class="card-description">
     <br>
-    <br>
-    ceci est une map
-    <br>
+      <p><%= @ride.itinerary.description %></p>
     <br>
   </div>
-  <div class="row">
-    <div class="col-6 d-flex justify-content-around">
-      <div class="grey-box my-2">
-        <p><%= @ride.itinerary.category %></p>
+
+    <div class="row justify-content-center my-5 mr-4 ml-3">
+      <div class="col-6 d-flex justify-content-around">
+        <div class="grey-box p-2">
+          <p><%= @ride.itinerary.category %></p>
+        </div>
+      </div>
+      <div class="col-6 d-flex justify-content-around">
+        <div class="grey-box p-2">
+          <p><%= @ride.itinerary.km %></p>
+        </div>
       </div>
     </div>
-    <div class="col-6 d-flex justify-content-around">
-      <div class="grey-box my-2">
-        <p><%= @ride.itinerary.km %></p>
+    <div class="row justify-content-center my-5 mr-4 ml-3">
+      <div class="col-6 d-flex justify-content-around">
+        <div class="grey-box my-4">
+          <p>Total participants</p>
+        </div>
+      </div>
+      <div class="col-6 d-flex justify-content-around">
+        <div class="grey-box p-2 my-4">
+            <p>Upvotes</p>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-6 d-flex justify-content-around">
-      <div class="grey-box my-2">
-        <p>Total participants</p>
-      </div>
-    </div>
-    <div class="col-6 d-flex justify-content-around">
-      <div class="grey-box my-2">
-        <p>Upvotes</p>
-      </div>
-    </div>
-  </div>
+
+
   <div class="text-center">
-    <%= link_to "Choose this ride", ride_path(@ride), class:"btn-choose-ride btn btn-success"%>
+    <%= link_to "Choose this ride", ride_path(@ride), class:"btn-choose-ride btn btn-Join"%>
   </div>
 
   <div class = "chat">
     <p><strong>kevin:</strong> should we start at 8 pm ?</p>
   </div>
+
 </div>
