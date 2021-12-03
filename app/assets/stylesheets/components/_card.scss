@@ -51,10 +51,14 @@
 .ride-card p {
   color: #F6FFF8;
   font-size: 20px;
+  width: 60px;
 }
 
 .card-description {
   background-color: $light-grey;
   text-align: center;
   border-radius: 4px;
+  margin: 20px;
+  padding: 23px;
+  box-shadow: 0px 0px 1px grey;
 }
