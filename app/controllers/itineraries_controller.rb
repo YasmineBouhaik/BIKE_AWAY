@@ -12,8 +12,9 @@ class ItinerariesController < ApplicationController
   def create
     @itinerary = Itinerary.new(params_itinerary)
     @itinerary.user = current_user
-
+    raise
     if @itinerary.save
+      create_steps
       redirect_to itinerary_path(@itinerary)
     else
       render :new
@@ -48,10 +49,11 @@ class ItinerariesController < ApplicationController
   private
 
   def params_itinerary
-    params.require(:itinerary).permit(:km, :category, :description, :title)
+    params.require(:itinerary).permit(:km, :category, :description, :title, steps_attributes:[:address, :itinerary_id])
   end
 
-  def create_step
+  def create_steps
+    params.count
     @step = Step.new(address:"address tapée par user", itinerary_id: @itinerary.id ) # à choper avec params ?
     @step.save
   end
