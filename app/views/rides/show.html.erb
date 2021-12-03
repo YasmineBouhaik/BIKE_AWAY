@@ -2,21 +2,28 @@
   <div>
     <%= render 'shared/map' %>
   </div>
-
-  <div class="d-flex my-4 ml-6">
+<div class="container">
+    <div class="text-center align-self-start pt-20">
     <h2><%= @ride.itinerary.title %></h2>
+  <div class="d-flex align-self-start">
   </div>
-
+    </div>
   <div class="card-description">
     <br>
       <p><%= @ride.itinerary.description %></p>
     <br>
   </div>
-
-    <div class="row justify-content-center my-5 mr-4 ml-3">
+<div class="container">
+    <div class="row justify-content-center ">
       <div class="col-6 d-flex justify-content-around">
         <div class="grey-box p-2">
-          <p><%= @ride.itinerary.category %></p>
+           <% if @ride.itinerary.category == "family" %>
+              <%= image_tag "family bike.png", class: "logo-category family-logo" %>
+              <% elsif @ride.itinerary.category == "road bike" %>
+              <%= image_tag "road bike.png", class: "logo-category" %>
+              <% elsif @ride.itinerary.category == "mountain bike" %>
+              <%= image_tag "mountain bike.png", class: "logo-category" %>
+              <% end %>
         </div>
       </div>
       <div class="col-6 d-flex justify-content-around">
@@ -25,7 +32,7 @@
         </div>
       </div>
     </div>
-    <div class="row justify-content-center my-5 mr-4 ml-3">
+    <div class="row justify-content-center ">
       <div class="col-6 d-flex justify-content-around">
         <div class="grey-box my-4">
           <p>Total participants</p>
@@ -37,7 +44,7 @@
         </div>
       </div>
     </div>
-
+<div></div>
 
   <div class="text-center">
     <%= link_to "Choose this ride", ride_path(@ride), class:"btn-choose-ride btn btn-Join"%>
