@@ -27,6 +27,7 @@
   background-color: #A4C3B2;
   color: #F6FFF8;
   border-radius: 20px;
+  text-align: center;
 }
 
 
@@ -50,4 +51,10 @@
 .ride-card p {
   color: #F6FFF8;
   font-size: 20px;
+}
+
+.card-description {
+  background-color: $light-grey;
+  text-align: center;
+  border-radius: 4px;
 }
