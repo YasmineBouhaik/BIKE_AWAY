@@ -1,14 +1,10 @@
 <div class="container">
-  <div class="d-flex justify-content-between">
+  <div class="d-flex justify-content-between my-5">
     <h2><%= @itinerary.title %></h2>
-    <%= link_to "Edit", edit_itinerary_path(@itinerary), class:"btn btn-success"%>
+    <%= link_to "Edit", edit_itinerary_path(@itinerary), class:"btn btn-Join"%>
   </div>
   <div class="edit-map-container container">
-    <br>
-    <br>
     <%= render 'shared/map' %>
-    <br>
-    <br>
   </div>
   <div class="row">
     <div class="col-6 d-flex justify-content-around">
@@ -44,9 +40,9 @@
       </div>
     <% end %>
   </div>
-  <h3>Create a new ride</h3>
+  <h3>Create Ride</h3>
   <%= simple_form_for([@itinerary, @ride]) do |f| %>
     <%= f.input :date %>
-    <%= f.submit class:"btn btn-success" %>
+    <%= f.submit class:"btn btn-Join" %>
   <%end  %>
 </div>
