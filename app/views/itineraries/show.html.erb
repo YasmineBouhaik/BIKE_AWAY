@@ -7,12 +7,18 @@
     <%= render 'shared/map' %>
   </div>
   <div class="row">
-    <div class="col-6 d-flex justify-content-around">
+    <div class="col-6 d-flex justify-content-around mt-3">
       <div class="grey-box my-2">
-        <p><%= @itinerary.category %></p>
+        <% if @itinerary.category == "family" %>
+          <%= image_tag "family bike.png", class: "logo-category family-logo" %>
+          <% elsif @itinerary.category == "road bike" %>
+          <%= image_tag "road bike.png", class: "logo-category" %>
+          <% elsif @itinerary.category == "mountain bike" %>
+          <%= image_tag "mountain bike.png", class: "logo-category" %>
+          <% end %>
       </div>
     </div>
-    <div class="col-6 d-flex justify-content-around">
+    <div class="col-6 d-flex justify-content-around mt-3">
       <div class="grey-box my-2">
         <p><%= @itinerary.km %></p>
       </div>
@@ -30,19 +36,22 @@
       </div>
     </div>
   </div>
+  <br>
   <h3>Prochains Rides</h3>
   <div class="row">
     <% @itinerary.rides.each do |ride|  %>
       <div class="col-6 d-flex justify-content-around">
         <div class="grey-box my-2">
           <p><%= ride.date %> # <%= ride.participants.count %> # </p>
+          <br>
         </div>
       </div>
     <% end %>
   </div>
+  <br>
   <h3>Create Ride</h3>
   <%= simple_form_for([@itinerary, @ride]) do |f| %>
     <%= f.input :date %>
-    <%= f.submit class:"btn btn-Join" %>
+    <%= f.submit class:"btn btn-Join mb-3" %>
   <%end  %>
 </div>
