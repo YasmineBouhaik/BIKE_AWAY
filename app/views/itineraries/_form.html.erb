@@ -1,9 +1,9 @@
 <div class="container">
   <%= simple_form_for(@itinerary) do |f| %>
     <%= f.input :km %>
-    <%= f.input :category %>
+    <%= f.input :category, as: :radio_buttons, collection: ["family", "road bike", "mountain bike"] %>
     <%= f.input :description %>
-    <%= f.input :title %>
+    <%= f.input :title, class: "title" %>
     <%= f.submit class:"btn btn-success" %>
   <% end %>
 </div>
