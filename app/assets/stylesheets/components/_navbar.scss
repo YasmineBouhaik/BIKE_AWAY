@@ -9,5 +9,14 @@ color:$green-5;
 }
 
 #navbarSupportedContent1 {
-  background-color:$green-1;
+  background-color:transparent ;
+}
+
+.navbar-nav {
+  background-color: $green-2;
+  padding:8px;
+  width: 180px;
+  height: 160px;
+  border-radius: 5% 5% 5% 5%;
+
 }
