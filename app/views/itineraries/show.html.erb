@@ -51,7 +51,7 @@
   <br>
   <h3>Create Ride</h3>
   <%= simple_form_for([@itinerary, @ride]) do |f| %>
-    <%= f.input :date %>
+    <%= f.input :date , html5: true %>
     <%= f.submit class:"btn btn-Join mb-3" %>
   <%end  %>
 </div>
