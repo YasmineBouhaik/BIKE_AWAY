@@ -41,8 +41,8 @@
   <h3>Prochains Rides</h3>
   <div class="row">
     <% @itinerary.rides.each do |ride|  %>
-      <div class="col-6 d-flex justify-content-around">
-        <div class="grey-box my-2">
+      <div class="col-12 d-flex justify-content-around">
+        <div class="card-date my-2">
           <p><%= ride.date.strftime("%B %d at %I") %>
           <br><i class="fas fa-user-friends"></i> <%= Participant.where(ride: @ride).count + 1 %>
           <br>
