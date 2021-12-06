@@ -8,8 +8,8 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import { loadDynamicBannerText } from '../components/banner';
-import { addStepToItinerary } from '../components/addstep';
-import mapboxgl from 'mapbox-gl';
+import { addStepToItinerary, removeStepFromItinerary } from '../components/addstep';
+import { initMapbox } from '../plugins/init_mapbox';
 import { displayChat, btnClick } from '../components/choose_ride_btn';
 import { heartClick } from '../components/vote_btn';
 
@@ -30,7 +30,6 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
   // map
-  import { initMapbox } from '../plugins/init_mapbox';
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
@@ -38,6 +37,7 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   loadDynamicBannerText();
   addStepToItinerary();
+  removeStepFromItinerary();
   btnClick();
   heartClick();
 

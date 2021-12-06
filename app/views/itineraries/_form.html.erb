@@ -7,6 +7,17 @@
     <input type="text" id="input">
     <input type="button" value="Add step" id="addstep">
     <ol class="hidden-form"></ol>
+    <% unless @steps.nil? %>
+      <ol>
+      <% @steps.each do |step| %>
+        <li><%= step.address %>
+          <%= link_to step_path(step), method: :delete do %>
+          <i class="fas fa-trash"></i>
+          <% end %>
+        </li>
+      <% end  %>
+      </ol>
+    <% end %>
     <%= f.submit class:"btn btn-Join" %>
   <% end %>
 </div>
