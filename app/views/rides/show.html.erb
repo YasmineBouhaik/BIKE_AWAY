@@ -28,14 +28,15 @@
       </div>
       <div class="col-6 d-flex justify-content-around">
         <div class="grey-box p-2">
-          <p><%= @ride.itinerary.km %></p>
+          <p><%= @ride.itinerary.km %> km </p>
         </div>
       </div>
     </div>
     <div class="row justify-content-center ">
       <div class="col-6 d-flex justify-content-around">
         <div class="grey-box my-4">
-          <p>Total participants</p>
+          <p><%= Participant.count + 1 %></p>
+          <i class="fas fa-user-friends"></i>
         </div>
       </div>
       <div class="col-6 d-flex justify-content-around">
