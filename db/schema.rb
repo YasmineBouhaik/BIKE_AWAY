@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_01_142826) do
+ActiveRecord::Schema.define(version: 2021_12_06_125419) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(version: 2021_12_01_142826) do
   end
 
   create_table "participants", force: :cascade do |t|
-    t.integer "vote"
     t.bigint "ride_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -51,6 +50,7 @@ ActiveRecord::Schema.define(version: 2021_12_01_142826) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "itinerary_id"
+    t.integer "vote"
     t.index ["itinerary_id"], name: "index_rides_on_itinerary_id"
   end
 

@@ -11,6 +11,7 @@ import { loadDynamicBannerText } from '../components/banner';
 import { addStepToItinerary } from '../components/addstep';
 import mapboxgl from 'mapbox-gl';
 import { displayChat, btnClick } from '../components/choose_ride_btn';
+import heartClick from '../components/vote_btn';
 
 
 Rails.start()
@@ -39,4 +40,5 @@ document.addEventListener('turbolinks:load', () => {
   loadDynamicBannerText();
   addStepToItinerary();
   btnClick();
+  heartClick();
 });
