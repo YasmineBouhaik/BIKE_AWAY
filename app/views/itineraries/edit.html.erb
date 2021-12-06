@@ -1,4 +1,8 @@
-<%= "EDIT" %>
+<div class="container">
+    <div class="text-center text-align flex-end">
+       <h1>Edit your itinerary</h1>
+    </div>
+  <%= render 'shared/map' %>
 
-<%= render "form", itinerary: @itinerary %>
-
+  <%= render "form", itinerary: @itinerary %>
+</div>

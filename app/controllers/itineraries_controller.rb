@@ -9,7 +9,6 @@ class ItinerariesController < ApplicationController
         lat: step.latitude,
         lng: step.longitude
       }
-    raise
     end
   end
 
@@ -36,6 +35,13 @@ class ItinerariesController < ApplicationController
 
   def edit
     @itinerary = Itinerary.find(params[:id])
+    display_step                  # calling the steps from current itinerary
+    @markers = @steps.geocoded.map do |step|
+      {
+        lat: step.latitude,
+        lng: step.longitude
+      }
+    end
   end
 
   def update
