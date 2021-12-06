@@ -1,12 +1,11 @@
 const changeHeartColor = (event) => {
-    event.PreventDefault();
+  event.preventDefault();
     const heartIcon = document.querySelector(".heart-icon");
-    heartIcon.getElementsByClassName.backgroundcolor = "red";
+    heartIcon.style.color = "#FF4C4C";
 }
+
 const heartClick = () => {
-  const heartBtn = document.querySelector(".btn-heart");
-  if (heartBtn) {
-  heartBtn.addEventListener('click', changeHeartColor);
-  }
+  const btnHeart = document.querySelector(".btn-heart");
+  btnHeart.addEventListener('click', changeHeartColor);
 }
-export {heartClick, changeHeartColor};
+export { heartClick };
