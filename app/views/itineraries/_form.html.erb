@@ -1,12 +1,12 @@
 <div class="container">
   <%= simple_form_for(@itinerary) do |f| %>
-    <%= f.input :km %>
-    <%= f.input :category %>
-    <%= f.input :description %>
     <%= f.input :title %>
+    <%= f.input :km %>
+    <%= f.input :category, as: :radio_buttons, collection: ["family", "road bike", "mountain bike"] %>
+    <%= f.input :description %>
     <input type="text" id="input">
     <input type="button" value="Add step" id="addstep">
     <ol class="hidden-form"></ol>
-    <%= f.submit class:"btn btn-success" %>
+    <%= f.submit class:"btn btn-Join" %>
   <% end %>
 </div>

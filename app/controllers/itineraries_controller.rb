@@ -23,6 +23,7 @@ class ItinerariesController < ApplicationController
       end
     else
       render :new
+
     end
   end
 
