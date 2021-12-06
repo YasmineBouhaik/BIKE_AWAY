@@ -8,6 +8,7 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import { loadDynamicBannerText } from '../components/banner';
+import { addStepToItinerary } from '../components/addstep';
 import mapboxgl from 'mapbox-gl';
 import { displayChat, btnClick } from '../components/choose_ride_btn';
 
@@ -36,5 +37,6 @@ document.addEventListener('turbolinks:load', () => {
 
   initMapbox();
   loadDynamicBannerText();
+  addStepToItinerary();
   btnClick();
 });

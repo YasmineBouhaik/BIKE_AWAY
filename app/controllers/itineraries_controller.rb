@@ -12,9 +12,15 @@ class ItinerariesController < ApplicationController
   def create
     @itinerary = Itinerary.new(params_itinerary)
     @itinerary.user = current_user
-
-    if @itinerary.save
-      redirect_to itinerary_path(@itinerary)
+    @steps = []
+    unless params[:steps] == nil
+      params[:steps].each { |step| @steps<<step[:address] }
+      if @itinerary.save
+        create_steps
+        redirect_to itinerary_path(@itinerary)
+      else
+        render :new
+      end
     else
       render :new
 
@@ -49,6 +55,17 @@ class ItinerariesController < ApplicationController
   private
 
   def params_itinerary
-    params.require(:itinerary).permit(:km, :category, :description, :title)
+    params.require(:itinerary).permit(:km, :category, :description, :title, steps_attributes:[:address, :itinerary_id])
   end
+
+  def create_steps
+    @steps.each do |step|
+      @step = Step.create(address: step, itinerary_id: @itinerary.id)
+    end
+  end
+
+  def display_step
+    @steps = steps.where(itinerary_id: @itinerary.id)
+  end
+
 end
