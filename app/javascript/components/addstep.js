@@ -6,9 +6,24 @@ const addStepToItinerary = () => {
     addstep.addEventListener("click", (event) => {
       // event.preventDefault();
       // input.value;
-      hiddenform.insertAdjacentHTML("beforeend", `<li> ${input.value} (X) <input type="hidden" name="steps[][address]" value="${input.value}"></li>`);
+      hiddenform.insertAdjacentHTML("beforeend", `<li id="${input.value}" class="city"> ${input.value} <input type="hidden" name="steps[][address]" value="${input.value}" ></li>`);
+      removeStepFromItinerary();
     });
   }
- 
 }
+
+const removeStepFromItinerary = () => {
+  const cities = document.querySelectorAll(".city");
+  console.log(cities);
+  if (cities) {
+    cities.forEach((city) => {
+      console.log(city);
+      city.addEventListener("click", (event) => {
+        city.remove();
+      });
+    })
+  }
+}
+
 export { addStepToItinerary };
+export { removeStepFromItinerary };
