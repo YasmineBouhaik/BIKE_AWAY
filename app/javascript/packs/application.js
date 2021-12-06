@@ -13,7 +13,6 @@ import mapboxgl from 'mapbox-gl';
 import { displayChat, btnClick } from '../components/choose_ride_btn';
 import { heartClick } from '../components/vote_btn';
 
-
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
@@ -41,4 +40,7 @@ document.addEventListener('turbolinks:load', () => {
   addStepToItinerary();
   btnClick();
   heartClick();
+
+
+
 });

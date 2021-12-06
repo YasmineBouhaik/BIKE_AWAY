@@ -28,28 +28,29 @@
       </div>
       <div class="col-6 d-flex justify-content-around">
         <div class="grey-box p-2">
-          <p><%= @ride.itinerary.km %></p>
+          <p><%= @ride.itinerary.km %> km </p>
         </div>
       </div>
     </div>
     <div class="row justify-content-center ">
       <div class="col-6 d-flex justify-content-around">
         <div class="grey-box my-4">
-          <p>Total participants</p>
+          <p><%= Participant.where(ride: @ride).count + 1%></p>
+          <i class="fas fa-user-friends"></i>
         </div>
       </div>
       <div class="col-6 d-flex justify-content-around">
         <div class="grey-box p-2 my-4">
             <p>Upvotes</p>
-            
         </div>
       </div>
     </div>
 <div></div>
 
   <div class="text-center">
-    <%= link_to "Choose this ride", ride_path(@ride), class:"btn-choose-ride btn btn-Join"%>
+    <%= link_to "Choose this ride", ride_participants_path(@ride), class:"btn-choose-ride btn btn-Join", method: :post%>
   </div>
+
 
   <div class = "chat">
     <h2><strong>You've been added to this trip with success !</strong> &#128512; </h2>

@@ -1,7 +1,18 @@
 class RidesController < ApplicationController
 
   def index
-    @rides = Ride.all
+    if params["range-1a"]
+      @max = params["range-1a"].to_i
+      @all_rides = Ride.all
+      @rides = []
+      @all_rides.each do |ride|
+        if ride.itinerary.km <= @max
+          @rides << ride
+        end
+      end
+    else
+      @rides = Ride.all
+    end
   end
 
   def show
