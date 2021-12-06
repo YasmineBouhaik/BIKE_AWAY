@@ -9,7 +9,7 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import { loadDynamicBannerText } from '../components/banner';
 import { addStepToItinerary } from '../components/addstep';
-import mapboxgl from 'mapbox-gl';
+import initMapbox from '../plugins/init_mapbox';
 import { displayChat, btnClick } from '../components/choose_ride_btn';
 
 

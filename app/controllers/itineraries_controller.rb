@@ -3,6 +3,13 @@ class ItinerariesController < ApplicationController
   def show
     @itinerary = Itinerary.find(params[:id])
     @ride = Ride.new              # empty shell for creating rides in itinerary/show
+    display_step                  # calling the steps from current itinerary
+      @markers = @steps.geocoded.map do |step|
+      {
+        lat: step.latitude,
+        lng: step.longitude
+      }
+    end
   end
 
   def new
@@ -23,7 +30,6 @@ class ItinerariesController < ApplicationController
       end
     else
       render :new
-
     end
   end
 
@@ -65,7 +71,7 @@ class ItinerariesController < ApplicationController
   end
 
   def display_step
-    @steps = steps.where(itinerary_id: @itinerary.id)
+    @steps = Step.where(itinerary_id: @itinerary.id)
   end
 
 end
