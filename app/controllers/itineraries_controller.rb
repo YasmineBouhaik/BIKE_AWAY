@@ -17,7 +17,6 @@ class ItinerariesController < ApplicationController
       redirect_to itinerary_path(@itinerary)
     else
       render :new
-
     end
   end
 
