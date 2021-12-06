@@ -42,15 +42,14 @@
       <div class="col-6 d-flex justify-content-around">
         <div class="grey-box p-2 my-4">
             <p>Upvotes</p>
-            <p class = "votes"><script>let votes = <%= @ride.vote %></script></p>
-            
+            <p class = "votes"><%= @votes = @ride.vote  %></p>
         </div>
       </div>
     </div>
 <div></div>
 
   <div class="text-center">
-    <%= link_to "Choose this ride", ride_participants_path(@ride), class:"btn-choose-ride btn btn-Join", method: :post%>
+    <%= link_to "Choose this ride", ride_participants_path(@ride), class:"btn-choose-ride btn btn-Join", method: :post, remote:true%>
   </div>
 
 
