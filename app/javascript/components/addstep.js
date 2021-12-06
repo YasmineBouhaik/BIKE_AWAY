@@ -14,10 +14,8 @@ const addStepToItinerary = () => {
 
 const removeStepFromItinerary = () => {
   const cities = document.querySelectorAll(".city");
-  console.log(cities);
   if (cities) {
     cities.forEach((city) => {
-      console.log(city);
       city.addEventListener("click", (event) => {
         city.remove();
       });
