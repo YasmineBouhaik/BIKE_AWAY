@@ -31,6 +31,13 @@ class RidesController < ApplicationController
 
   def show
     @ride = Ride.find(params[:id])
+    display_step                  # calling the steps from current itinerary
+    @markers = @steps.geocoded.map do |step|
+      {
+        lat: step.latitude,
+        lng: step.longitude
+      }
+    end
   end
 
   def create
@@ -49,6 +56,10 @@ class RidesController < ApplicationController
 
   def params_ride
     params.require(:ride).permit(:date)
+  end
+
+  def display_step
+    @steps = Step.where(itinerary_id: @ride.itinerary.id)
   end
 
 end
