@@ -42,7 +42,7 @@
     <% @itinerary.rides.each do |ride|  %>
       <div class="col-6 d-flex justify-content-around">
         <div class="grey-box my-2">
-          <p><%= ride.date %> # <%= ride.participants.count %> # </p>
+          <p><%= ride.date.strftime("%B %d at %I") %> # <%= ride.participants.count %> # </p>
           <br>
         </div>
       </div>

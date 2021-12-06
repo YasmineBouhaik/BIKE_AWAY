@@ -12,7 +12,7 @@ Itinerary.destroy_all
 Ride.destroy_all
 
 puts "creating users"
-user1 = User.create!(email: "marwa@gmail.com", first_name: "Marwa", last_name: "homsi", age: 30, level: "beginner", password: "azerty", url: "user1.png", bio: "I like cycling and going out with friends") 
+user1 = User.create!(email: "marwa@gmail.com", first_name: "Marwa", last_name: "homsi", age: 30, level: "beginner", password: "azerty", url: "user1.png", bio: "I like cycling and going out with friends")
 user2 = User.create!(email: "yasmine@gmail.com", first_name: "Yasmine", last_name: "Bouhaik", age: 30, level: "intermediate", password: "azerty", url: "user2.png", bio: "I love cycling and going out with friends")
 user3 = User.create!(email: "remi@gmail.com", first_name: "remi", last_name: "Tondeux", age: 30, level: "advanced", password: "azerty", url: "user3.png", bio: "I love cycling")
 
