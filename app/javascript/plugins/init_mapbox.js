@@ -34,4 +34,4 @@ if (mapElement) {
   fitMapToMarkers(map, markers);
 }
 
-export { initMapbox };
+export { initMapbox, fitMapToMarkers };

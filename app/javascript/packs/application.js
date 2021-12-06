@@ -9,7 +9,7 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import { loadDynamicBannerText } from '../components/banner';
 import { addStepToItinerary } from '../components/addstep';
-import initMapbox from '../plugins/init_mapbox';
+import { initMapbox, fitMapToMarkers } from '../plugins/init_mapbox';
 import { displayChat, btnClick } from '../components/choose_ride_btn';
 
 
@@ -36,6 +36,7 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
 
   initMapbox();
+  fitMapToMarkers(;)
   loadDynamicBannerText();
   addStepToItinerary();
   btnClick();
