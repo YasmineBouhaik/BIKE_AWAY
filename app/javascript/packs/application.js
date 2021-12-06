@@ -12,7 +12,6 @@ import { addStepToItinerary } from '../components/addstep';
 import mapboxgl from 'mapbox-gl';
 import { displayChat, btnClick } from '../components/choose_ride_btn';
 
-
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
@@ -39,4 +38,5 @@ document.addEventListener('turbolinks:load', () => {
   loadDynamicBannerText();
   addStepToItinerary();
   btnClick();
+
 });
