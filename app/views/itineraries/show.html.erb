@@ -20,14 +20,15 @@
     </div>
     <div class="col-6 d-flex justify-content-around mt-3">
       <div class="grey-box my-2">
-        <p><%= @itinerary.km %></p>
+        <p><%= @itinerary.km %> km </p>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col-6 d-flex justify-content-around">
       <div class="grey-box my-2">
-        <p>Total participants</p>
+        <p><%= Participant.count + 1 %></p>
+        <i class="fas fa-user-friends"></i>
       </div>
     </div>
     <div class="col-6 d-flex justify-content-around">
@@ -42,7 +43,8 @@
     <% @itinerary.rides.each do |ride|  %>
       <div class="col-6 d-flex justify-content-around">
         <div class="grey-box my-2">
-          <p><%= ride.date.strftime("%B %d at %I") %> # <%= ride.participants.count %> # </p>
+          <p><%= ride.date.strftime("%B %d at %I") %>
+          <br><i class="fas fa-user-friends"></i> <%= Participant.where(ride: @ride).count + 1 %>
           <br>
         </div>
       </div>
