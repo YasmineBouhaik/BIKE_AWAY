@@ -43,7 +43,7 @@
     <% @itinerary.rides.each do |ride|  %>
       <div class="col-12 d-flex justify-content-around">
         <div class="card-date my-2">
-          <p><%= ride.date.strftime("%B %d at %I") %>
+          <p><%= link_to ride.date.strftime("%B %d at %I"), ride_path(ride) %>
           <br><i class="fas fa-user-friends"></i> <%= Participant.where(ride: @ride).count + 1 %>
           <br>
         </div>

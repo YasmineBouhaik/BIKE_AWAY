@@ -32,7 +32,7 @@
       <div class="col-sm-12 col-lg-4">
         <div class = "card p-3 mb-4">
           <div class = "card-title d-flex align-items justify-content-between">
-            <%= link_to profile_path do %>
+            <%= link_to profile_path(ride.itinerary.user.id) do %>
               <%= image_tag ride.itinerary.user.url, alt: "user image", class: "avatar mr-3" %>
             <% end %>
             <h3><strong><%= ride.itinerary.title %></strong></h3>

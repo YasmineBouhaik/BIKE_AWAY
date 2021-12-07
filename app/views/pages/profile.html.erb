@@ -1,12 +1,12 @@
 <div class= "container">
 <div class = "top-div">
-  <h1><%= current_user.first_name %></h1>
+  <h1><%= @user.first_name %></h1>
   <p>Cycling addict !</p>
-  <%= image_tag current_user.url, alt: "user image", width: "100px", class: "avatar-card" %>
+  <%= image_tag @user.url, alt: "user image", width: "100px", class: "avatar-card" %>
 </div>
 
 <div class = "bio card mx-auto text-center m-3 col-sm-12 col-lg-4 p-4">
- <p> <%= current_user.bio %> </p>
+ <p> <%= @user.bio %> </p>
 </div>
 
 <div class = "profile-itineraries">
@@ -16,7 +16,7 @@
     <div class="itinerary-card-column col-sm-12 col-lg-4">
       <div class = "itinerary-card card p-3 mb-4 ">
         <div class = "card-title d-flex align-items justify-content-start">
-          <%= image_tag current_user.url, alt: "user image", class: "avatar mr-3" %>
+          <%= image_tag itinerary.user.url, alt: "user image", class: "avatar mr-3" %>
           <h3> <%= itinerary.title %> </h3>
         </div>
         <div class = "card-text d-flex align-items justify-content-between px-5">
