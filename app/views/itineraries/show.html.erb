@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="d-flex justify-content-between my-5">
+    <h2><%= @itinerary.title %></h2>
+    <%= link_to "Edit", edit_itinerary_path(@itinerary), class:"btn btn-Join"%>
+  </div>
+  <div class="edit-map-container container">
+    <%= render 'shared/map' %>
+  </div>
+  <div class="row">
+    <div class="col-6 d-flex justify-content-around mt-3">
+      <div class="grey-box my-2">
+        <% if @itinerary.category == "family" %>
+          <%= image_tag "family bike.png", class: "logo-category family-logo" %>
+          <% elsif @itinerary.category == "road bike" %>
+          <%= image_tag "road bike.png", class: "logo-category" %>
+          <% elsif @itinerary.category == "mountain bike" %>
+          <%= image_tag "mountain bike.png", class: "logo-category" %>
+          <% end %>
+      </div>
+    </div>
+    <div class="col-6 d-flex justify-content-around mt-3">
+      <div class="grey-box my-2">
+        <p><%= @itinerary.km %> km </p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6 d-flex justify-content-around">
+      <div class="grey-box my-2">
+        <p><%= Participant.count + 1 %></p>
+        <i class="fas fa-user-friends"></i>
+      </div>
+    </div>
+    <div class="col-6 d-flex justify-content-around">
+      <div class="grey-box my-2">
+        <p>Upvotes</p>
+      </div>
+    </div>
+  </div>
+  <br>
+  <h3>Prochains Rides</h3>
+  <div class="row">
+    <% @itinerary.rides.each do |ride|  %>
+      <div class="col-12 d-flex justify-content-around">
+        <div class="card-date my-2">
+          <p><%= ride.date.strftime("%B %d at %I") %>
+          <br><i class="fas fa-user-friends"></i> <%= Participant.where(ride: @ride).count + 1 %>
+          <br>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <br>
+  <h3>Create Ride</h3>
+  <%= simple_form_for([@itinerary, @ride]) do |f| %>
+    <%= f.input :date , html5: true %>
+    <%= f.submit class:"btn btn-Join mb-3" %>
+  <%end  %>
+</div>
