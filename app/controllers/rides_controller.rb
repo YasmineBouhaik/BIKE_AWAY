@@ -32,6 +32,7 @@ class RidesController < ApplicationController
   def show
     @ride = Ride.find(params[:id])
     display_step                  # calling the steps from current itinerary
+    @participant = @ride.participants.find_by(user: current_user) if current_user
     @markers = @steps.geocoded.map do |step|
       {
         lat: step.latitude,
@@ -51,13 +52,13 @@ class RidesController < ApplicationController
     end
   end
   
-   def upvote
-     @ride = Ride.find(params[:ride_id])
-     @ride.vote += 1
-     if @ride.save
-      redirect_to ride_path(@ride, anchor: "div-chat")
-     end
-   end
+  #  def upvote
+  #    @ride = Ride.find(params[:ride_id])
+  #    @ride.vote += 1
+  #    if @ride.save
+  #     redirect_to ride_path(@ride, anchor: "div-chat")
+  #    end
+  #  end
 
   private
 
