@@ -9,7 +9,11 @@
         <p><%= link_to "Homepage", root_path %></p>
       </li>
       <li class="nav-item">
-        <p><%= link_to "Profile", profile_path(current_user) %></p>
+        <% if current_user %>
+          <p><%= link_to "Profile", profile_path(current_user) %></p>
+        <% else %>
+          <% link_to new_user_session_path %>
+        <% end %>
       </li>
       <li class="nav-item">
         <p><%= link_to "Join a ride", rides_path %></p>
