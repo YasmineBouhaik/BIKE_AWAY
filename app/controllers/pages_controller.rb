@@ -5,6 +5,7 @@ class PagesController < ApplicationController
   end
 
   def profile
-    @itineraries = Itinerary.all
+    @user = User.find(params[:id])
+    @itineraries = Itinerary.where(user_id: @user.id)
   end
 end

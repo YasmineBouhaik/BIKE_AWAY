@@ -9,7 +9,7 @@
         <p><%= link_to "Homepage", root_path %></p>
       </li>
       <li class="nav-item">
-        <p><%= link_to "Profil", profile_path %></p>
+        <p><%= link_to "Profile", profile_path(current_user) %></p>
       </li>
       <li class="nav-item">
         <p><%= link_to "Join a ride", rides_path %></p>
