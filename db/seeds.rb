@@ -25,7 +25,7 @@ itinerary1 = Itinerary.create!(km: 15, category: "family", description: "happy m
 itinerary2 = Itinerary.create!(km: 30, category: "road bike", description: "interesting road bike in the city", user: user2, title: "Mouscron-Lille")
 itinerary3 = Itinerary.create!(km: 40, category: "mountain bike", description: "a mountain bike through the mountain! a new bike challenge", user: user2, title: "Phalempin-Lille")
 itinerary4 = Itinerary.create!(km: 60, category: "mountain bike", description: "mountain...mountain...everywhere such a pleasure ! ", user: user4, title: "Draucourt-Lille")
-itinerary5 = Itinerary.create!(km: 140, category: "road bike", description: "No pain no gain,if you like challenge this is for you", user: user2, title: "Lille-Amiens")
+itinerary5 = Itinerary.create!(km: 140, category: "road bike", description: "No pain no gain, if you like challenge this is for you", user: user2, title: "Lille-Amiens")
 itinerary6 = Itinerary.create!(km: 280, category: "road bike", description: "Fresh air await, Famous mussels and french fries", user: user3, title: "Lomme-Calais")
 itinerary7 = Itinerary.create!(km: 320, category: "road bike", description: "I heard you like cycling,we headed straight where bike is born...beautiful Amsterdam", user: user2, title: "Arras-Amsterdam")
 itinerary8 = Itinerary.create!(km: 250, category: "road bike", description: "The Tour de France most famous event)", user: user1, title: "Paris-Roubaix")
@@ -46,8 +46,15 @@ puts "creating rides"
 ride1 = { date: DateTime.new(2022,1,15,14.30), itinerary: itinerary1, vote: 0 }
 ride2 = { date: DateTime.new(2022,2,20,12), itinerary: itinerary2, vote: 0 }
 ride3 = { date: DateTime.new(2022,2,25,10), itinerary: itinerary3, vote: 0 }
+ride4 = { date: DateTime.new(2022,2,25,10), itinerary: itinerary9, vote: 0 }
+ride5 = { date: DateTime.new(2021,2,12,10), itinerary: itinerary5, vote: 234 }
+ride6 = { date: DateTime.new(2022,2,25,10), itinerary: itinerary4, vote: 0 }
+ride7 = { date: DateTime.new(2022,2,25,10), itinerary: itinerary6, vote: 0 }
+ride8 = { date: DateTime.new(2022,2,25,10), itinerary: itinerary7, vote: 0 }
+ride9 = { date: DateTime.new(2022,2,25,10), itinerary: itinerary8, vote: 0 }
 
-[ ride1, ride2, ride3 ].each do |attributes|
+
+[ ride1, ride2, ride3, ride4, ride5, ride6, ride7, ride8, ride9 ].each do |attributes|
     ride = Ride.create!(attributes)
     puts "created #{ride.date}"
 end
