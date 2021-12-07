@@ -58,4 +58,16 @@ ride9 = { date: DateTime.new(2022,2,25,10), itinerary: itinerary8, vote: 0 }
     ride = Ride.create!(attributes)
     puts "created #{ride.date}"
 end
+
+puts "creating participants"
+participant1 = { user: user1, ride: ride1, voted: false  }
+participant2 = { user: user1, ride: ride2, voted: false  }
+participant3 = { user: user1, ride: ride3, voted: false  }
+participant4 = { user: user2, ride: ride1, voted: false  }
+participant5 = { user: user2, ride: ride2, voted: false  }
+participant6 = { user: user2, ride: ride3, voted: false  }
+participant7 = { user: user3, ride: ride1, voted: false  }
+participant8 = { user: user3, ride: ride2, voted: false  }
+participant9 = { user: user3, ride: ride3, voted: false  }
+
 puts "finished"

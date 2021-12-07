@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   get "profile/:id", to: "pages#profile", as: :profile
 
   resources :rides, only: [:index, :show] do
-    resources :participants, only: :create
+    resources :participants, only: :create 
     resources :messages, only: :create
-    patch "upvote", to: 'rides#upvote'
+    patch "voted", to: 'participants#voted'
   end
 
   resources :itineraries do
