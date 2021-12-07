@@ -27,9 +27,9 @@ itinerary3 = Itinerary.create!(km: 40, category: "mountain bike", description: "
 puts "finished"
 
 puts "creating rides"
-ride1 = { date: DateTime.new(2022,1,15,14.30), itinerary: itinerary1 }
-ride2 = { date: DateTime.new(2022,2,20,12), itinerary: itinerary2 }
-ride3 = { date: DateTime.new(2022,2,25,10), itinerary: itinerary3 }
+ride1 = { date: DateTime.new(2022,1,15,14.30), itinerary: itinerary1, vote: 0 }
+ride2 = { date: DateTime.new(2022,2,20,12), itinerary: itinerary2, vote: 0 }
+ride3 = { date: DateTime.new(2022,2,25,10), itinerary: itinerary3, vote: 0 }
 
 [ ride1, ride2, ride3 ].each do |attributes|
     ride = Ride.create!(attributes)
