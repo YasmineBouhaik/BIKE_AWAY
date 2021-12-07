@@ -38,11 +38,11 @@
           <div class = "card-text d-flex justify-content-around">
             <p> <%= ride.itinerary.km %> km </p>
             <p> <% if ride.itinerary.category == "family" %>
-              <%= image_tag "family bike.png", class: "logo-category" %>
+              <%= image_tag "family-bike-vert-fonce.png", class: "logo-category" %>
               <% elsif ride.itinerary.category == "road bike" %>
-              <%= image_tag "road bike.png", class: "logo-category" %>
+              <%= image_tag "road-bike-vert-fonce.png", class: "logo-category" %>
               <% elsif ride.itinerary.category == "mountain bike" %>
-              <%= image_tag "mountain bike.png", class: "logo-category" %>
+              <%= image_tag "mountain-bike-vert-fonce", class: "logo-category" %>
               <% end %>
             </p>
           </div>
