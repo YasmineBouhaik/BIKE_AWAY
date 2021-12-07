@@ -1,5 +1,5 @@
 .logo-category{
-  height: 50px;
+  height: 35px;
 }
 
 .itinerary-card {
@@ -24,10 +24,11 @@
 }
 
 .card {
-  background-color: #A4C3B2;
+  background-color: white;
   color: #F6FFF8;
   border-radius: 20px;
   text-align: center;
+  border-color: #6B9080;
 }
 
 
@@ -41,7 +42,7 @@
 }
 
 .ride-card h3 {
-  color: #F6FFF8;
+  color: $green-5;
   font-weight: bold;
   font-size: 1rem;
   height: 50px;
@@ -49,8 +50,7 @@
 }
 
 .ride-card p {
-  color: #F6FFF8;
-  font-size: 20px;
+  color: $green-5;
   width: 60px;
 }
 
