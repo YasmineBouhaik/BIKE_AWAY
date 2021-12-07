@@ -1,8 +1,10 @@
 const displayChat = (event) => {
-    event.preventDefault();
-    const chat = document.querySelector(".chat");
+  event.preventDefault();
+  const chat = document.querySelector(".chat");
+  if (chat){
+    console.log("hello");
     chat.style.display = "block";
-
+  }
 }
 
 const btnClick = () => {
@@ -12,5 +14,4 @@ const btnClick = () => {
   }
 }
 
-
-export { displayChat, btnClick };
+export { btnClick };

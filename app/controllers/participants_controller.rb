@@ -5,7 +5,7 @@ class ParticipantsController < ApplicationController
     @participant.ride = @ride
     @participant.user = current_user
     @participant.save
-    redirect_to ride_path(@ride)
+    render ride_path(@ride)
   end
 
   private

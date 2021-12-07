@@ -10,7 +10,7 @@ import "channels"
 import { loadDynamicBannerText } from '../components/banner';
 import { addStepToItinerary, removeStepFromItinerary } from '../components/addstep';
 import { initMapbox } from '../plugins/init_mapbox';
-import { displayChat, btnClick } from '../components/choose_ride_btn';
+import { btnClick } from '../components/choose_ride_btn';
 import { heartClick } from '../components/vote_btn';
 
 Rails.start()
