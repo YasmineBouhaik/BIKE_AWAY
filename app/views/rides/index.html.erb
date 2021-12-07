@@ -32,7 +32,9 @@
       <div class="col-sm-12 col-lg-4">
         <div class = "card p-3 mb-4">
           <div class = "card-title d-flex align-items justify-content-start">
-            <%= image_tag ride.itinerary.user.url, alt: "user image", class: "avatar mr-3" %>
+            <%= link_to profile_path do %>
+              <%= image_tag ride.itinerary.user.url, alt: "user image", class: "avatar mr-3" %>
+            <% end %>
             <h3> <%= ride.date.strftime("%B %d at %I") %> </h3>
           </div>
           <div class = "card-text d-flex justify-content-around">
