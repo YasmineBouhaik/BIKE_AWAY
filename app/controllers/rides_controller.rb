@@ -11,23 +11,15 @@ class RidesController < ApplicationController
         end
       end
     elsif params[:query].present?
-      @rides = []
-      @itineraries = Itinerary.all
-      @itineraries.each do |itinerary|
-        if itinerary.title.include?(params[:query])
-          @rides << itinerary.rides
-        end
-      end
-      @rides = @rides[0] unless @rides.empty?
+      sql_query = " \ itineraries.title ILIKE :query \ "
+      @rides = Ride.joins(:itinerary).where(sql_query, query: "%#{params[:query]}%")
     else
       @rides = Ride.all
     end
-    if params[:query].present?
-      @itineraries = Itinerary.where("title ILIKE ?", "%#{params[:query]}%")
-    else
-      @itineraries = Itinerary.all
-    end
   end
+
+
+
 
   def show
     @ride = Ride.find(params[:id])
