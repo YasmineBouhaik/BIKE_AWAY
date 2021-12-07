@@ -42,16 +42,13 @@
       <div class="col-6 d-flex justify-content-around">
         <div class="grey-box p-2 my-4">
             <p>Upvotes</p>
+            <p class = "votes"><%= @vote  %></p>
         </div>
       </div>
     </div>
 <div></div>
 
-  <div class="text-center">
-    <%= link_to "Choose this ride", ride_participants_path(@ride), class:"btn-choose-ride btn btn-Join", method: :post%>
-  </div>
-
-
+<% if @ride.participants.one? { |participant| participant.user  == current_user } %>
   <div class = "chat">
     <h2><strong>You've been added to this trip with success !</strong> &#128512; </h2>
     <div class = btn-heart-div><button class = "btn-heart">
@@ -60,3 +57,9 @@
       <p><strong>kevin:</strong> should we start at 8 pm ?</p>
     </div>
 </div>
+
+<% else  %>
+  <div class="text-center">
+    <%= link_to "Choose this ride", ride_participants_path(@ride), class:"btn-choose-ride btn btn-Join", method: :post, remote:true%>
+  </div>
+<% end  %>
