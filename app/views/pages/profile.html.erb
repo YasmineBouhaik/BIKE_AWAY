@@ -1,6 +1,6 @@
 <div class= "container">
 <div class = "top-div">
-  <h1><%= current_user.first_name %></h1>
+  <h1><%= @user.first_name %></h1>
   <p>Cycling addict !</p>
   <%= image_tag @user.url, alt: "user image", width: "100px", class: "avatar-card" %>
 </div>
