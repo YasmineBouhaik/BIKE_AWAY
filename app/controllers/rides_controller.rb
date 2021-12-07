@@ -51,7 +51,7 @@ class RidesController < ApplicationController
       render :new
     end
   end
-  
+
   #  def upvote
   #    @ride = Ride.find(params[:ride_id])
   #    @ride.vote += 1
