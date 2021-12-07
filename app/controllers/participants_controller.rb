@@ -7,7 +7,7 @@ class ParticipantsController < ApplicationController
     if @participant.save!
       redirect_to ride_path(@ride)
     end
-    
+
   end
 
   def voted
@@ -21,6 +21,6 @@ class ParticipantsController < ApplicationController
   private
 
   def params_participant
-    params.require(:participant).permit(:vote, :ride_id)
+    params.require(:participant).permit(:voted, :ride_id)
   end
 end
