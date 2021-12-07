@@ -4,8 +4,10 @@ class ParticipantsController < ApplicationController
     @ride = Ride.find(params[:ride_id])
     @participant.ride = @ride
     @participant.user = current_user
-    @participant.save
-    render ride_path(@ride)
+    if @participant.save!
+      redirect_to ride_path(@ride)
+    end
+    
   end
 
   private

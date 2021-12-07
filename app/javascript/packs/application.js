@@ -38,7 +38,7 @@ document.addEventListener('turbolinks:load', () => {
   loadDynamicBannerText();
   addStepToItinerary();
   removeStepFromItinerary();
-  btnClick();
+  
   heartClick();
 
 
