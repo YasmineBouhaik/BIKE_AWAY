@@ -3,12 +3,13 @@
     <%= f.input :title %>
     <%= f.input :km %>
     <%= f.input :category, as: :radio_buttons,
-                          //collection: ["family", "road bike", "mountain bike"]
+                          collection: ["family", "road bike", "mountain bike"],
                           collection_wrapper_tag: 'div',
                           collection_wrapper_class: 'category-wrapper',
                           item_wrapper_class: 'category-item',
                           input_html: {class: 'category-selector'},
-                          collection: Snippet::["family", "road bike", "mountain bike"] %>
+                          collection: Itinerary::CATEGORIES %>
+                          
     <%= f.input :description %>
     <input type="text" id="input">
     <input type="button" value="Add step" id="addstep">
