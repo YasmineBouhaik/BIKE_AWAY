@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :rides, only: [:index, :show] do
     resources :participants, only: :create
     resources :messages, only: :create
+    patch "upvote", to: 'rides#upvote'
   end
 
   resources :itineraries do

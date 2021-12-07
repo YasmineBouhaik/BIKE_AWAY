@@ -50,7 +50,14 @@ class RidesController < ApplicationController
       render :new
     end
   end
-
+  
+   def upvote
+     @ride = Ride.find(params[:ride_id])
+     @ride.vote += 1
+     if @ride.save
+      redirect_to ride_path(@ride, anchor: "div-chat")
+     end
+   end
 
   private
 
