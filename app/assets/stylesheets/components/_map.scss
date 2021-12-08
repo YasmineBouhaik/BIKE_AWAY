@@ -1,12 +1,12 @@
 .Map {
-  background-size: 60%;
+  position: relative;
+  top: 25vh;
+  background-size: 125%;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: asset-url('carte.png');
-  height: 28vh;
+  background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), asset-url('carte.png');
+  height: 50vh;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
-
-
+  align-items: center;
 }
