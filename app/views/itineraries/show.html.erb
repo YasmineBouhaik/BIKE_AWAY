@@ -31,8 +31,8 @@
       </div>
     </div>
     <div class="col-6 d-flex justify-content-around">
-      <div class="grey-box my-4">
-        <p>Upvotes</p>
+      <div class="grey-box my-4 p-3">
+      <p> <%= @ride.participants.where(voted: true).count  %> <i class="heart-icon far fa-heart" ></i> </p>
       </div>
     </div>
   </div>
