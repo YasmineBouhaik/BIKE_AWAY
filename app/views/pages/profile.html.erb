@@ -10,7 +10,9 @@
 </div>
 
 <div class = "profile-itineraries">
-  <h2>My itineraries</h2>
+  <br>
+  <h2> <%= @user.first_name %>'s itineraries </h2>
+  <br>
   <div class = "row">
     <% @itineraries.each do |itinerary|  %>
     <div class="itinerary-card-column col-sm-12 col-lg-4">
