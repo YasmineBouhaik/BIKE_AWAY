@@ -28,7 +28,7 @@ itinerary4 = Itinerary.create!(km: 60, category: "mountain bike", description: "
 itinerary5 = Itinerary.create!(km: 140, category: "road bike", description: "No pain no gain, if you like challenge this is for you", user: user2, title: "Lille-Amiens")
 itinerary6 = Itinerary.create!(km: 280, category: "road bike", description: "Fresh air await, Famous mussels and french fries", user: user3, title: "Lomme-Calais")
 itinerary7 = Itinerary.create!(km: 320, category: "road bike", description: "I heard you like cycling,we headed straight where bike is born...beautiful Amsterdam", user: user2, title: "Arras-Amsterdam")
-itinerary8 = Itinerary.create!(km: 250, category: "road bike", description: "The Tour de France most famous event)", user: user1, title: "Paris-Roubaix")
+itinerary8 = Itinerary.create!(km: 250, category: "road bike", description: "The Tour de France most famous event", user: user1, title: "Paris-Roubaix")
 itinerary9 = Itinerary.create!(km: 490, category: "road bike", description: "Ready for new adventures? I've got something for you...)", user: user2, title: "Rambouillet-Bern")
 puts "finished"
 
