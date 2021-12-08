@@ -1,17 +1,17 @@
 .banner {
   position: relative;
-  background-size: cover;
-  background-position: -220px -80px;
-  padding: 160px 0;
-  height: 82vh;
+  background-size: 250%;
+  background-repeat: no-repeat;
+  background-position: 35%;
+  height: 72vh;
 }
 
 .banner h1 {
-  margin: 0;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 32px;
   font-weight: bold;
+  padding-top: 170px;
 }
 
 .banner p {
