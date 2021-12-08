@@ -1,17 +1,21 @@
 <div class="container">
   <%= simple_form_for(@itinerary) do |f| %>
     <%= f.input :title %>
-    <%= f.input :km %>
     <%= f.input :category, as: :radio_buttons,
-                          collection: ["family", "road bike", "mountain bike"],
+                          
                           collection_wrapper_tag: 'div',
                           collection_wrapper_class: 'category-wrapper',
-                          item_wrapper_class: 'category-item',
+                          item_wrapper_class: 'category-item d-none',
                           input_html: {class: 'category-selector'},
                           collection: Itinerary::CATEGORIES %>
-                          
+    <div class = "container">
+      <%= image_tag "family bike.png", class: "logo-category family-logo", id: "family", data: {id: '0'} %>
+      <%= image_tag "road bike.png", class: "logo-category", id: "road", data: {id: '1'} %>
+      <%= image_tag "mountain bike.png", class: "logo-category", id: "mountain", data: {id: '2'} %>
+    </div>
+    <%= f.input :km %>
     <%= f.input :description %>
-    <input type="text" id="input">
+    <input type="text" id="input" >
     <input type="button" value="Add step" id="addstep">
     <ol class="hidden-form"></ol>
     <% unless @steps.nil? %>
