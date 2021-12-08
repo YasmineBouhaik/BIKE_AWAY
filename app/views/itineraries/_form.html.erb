@@ -8,10 +8,10 @@
                           item_wrapper_class: 'category-item d-none',
                           input_html: {class: 'category-selector'},
                           collection: Itinerary::CATEGORIES %>
-    <div class = "container">
-      <%= image_tag "family bike.png", class: "logo-category family-logo", id: "family", data: {id: '0'} %>
-      <%= image_tag "road bike.png", class: "logo-category", id: "road", data: {id: '1'} %>
-      <%= image_tag "mountain bike.png", class: "logo-category", id: "mountain", data: {id: '2'} %>
+    <div class = "category-logos">
+      <%= image_tag "family bike.png", class: "logos logo-category", data: {id: '0'} %>
+      <%= image_tag "road bike.png", class: "logos logo-category ", data: {id: '1'} %>
+      <%= image_tag "mountain bike.png", class: "logos logo-category", data: {id: '2'} %>
     </div>
     <%= f.input :km %>
     <%= f.input :description %>

@@ -4,6 +4,7 @@
 }
 
 .itinerary-card {
+
   height: 200px;
   background-color: $green-4;
   border-radius: 20px;
@@ -19,7 +20,7 @@
 }
 .details-button{
   text-align: end;
-  margin: 0px 0px;
+  margin: 10px 30px;
 }
 
 .card {
@@ -59,7 +60,7 @@
   border-radius: 4px;
   margin: 20px;
   padding: 23px;
-  box-shadow: 1px 1px 1px $green-4;
+  box-shadow: 0px 0px 1px $green-4;
 }
 
 .card-date {
