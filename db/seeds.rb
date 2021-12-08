@@ -54,7 +54,7 @@ ride8 = { date: DateTime.new(2022,2,25,10), itinerary: itinerary7, vote: 0 }
 ride9 = { date: DateTime.new(2022,2,25,10), itinerary: itinerary8, vote: 0 }
 
 
-[ ride1, ride2, ride3, ride4, ride5, ride6, ride7, ride8, ride9 ].each do |attributes|
+[ ride9, ride8, ride3, ride4, ride5, ride6, ride7, ride1, ride2 ].each do |attributes|
     ride = Ride.create!(attributes)
     puts "created #{ride.date}"
 end
