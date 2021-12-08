@@ -27,16 +27,15 @@
         </div>
       </div>
       <div class="col-6 d-flex justify-content-around">
-        <div class="grey-box p-2">
+        <div class="grey-box p-3">
           <p><%= @ride.itinerary.km %> km </p>
         </div>
       </div>
     </div>
     <div class="row justify-content-center ">
       <div class="col-6 d-flex justify-content-around">
-        <div class="grey-box my-4">
-          <p><%= Participant.where(ride: @ride).count + 1%></p>
-          <i class="fas fa-user-friends"></i>
+        <div class="grey-box my-4 p-3">
+        <p><i class="fas fa-user-friends"></i> <%= Participant.where(ride: @ride).count + 1%></p>
         </div>
       </div>
       <div class="col-6 d-flex justify-content-around">
