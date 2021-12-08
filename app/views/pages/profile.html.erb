@@ -1,5 +1,5 @@
 <div class= "container">
-<div class = "top-div">
+<div class = "top-div mt-3">
   <h1><%= @user.first_name %></h1>
   <p>Cycling addict !</p>
   <%= image_tag @user.url, alt: "user image", width: "100px", class: "avatar-card" %>
@@ -10,7 +10,6 @@
 </div>
 
 <div class = "profile-itineraries">
-  <br>
   <h2> <%= @user.first_name %>'s itineraries </h2>
   <br>
   <div class = "row">
