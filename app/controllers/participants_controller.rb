@@ -7,7 +7,7 @@ class ParticipantsController < ApplicationController
     if @participant.save!
       redirect_to ride_path(@ride)
     end
-    
+
   end
 
   def voted
