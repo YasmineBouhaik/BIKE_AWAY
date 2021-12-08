@@ -7,15 +7,16 @@ class ParticipantsController < ApplicationController
     if @participant.save!
       redirect_to ride_path(@ride)
     end
-    
+
   end
 
   def voted
      @ride = Ride.find(params[:ride_id])
-     @participant = @ride.participants.find_by(user: current_user )
+     @participant = @ride.participants.find_by(user: current_user)
      @participant.voted = true
-     @participant.save
-     redirect_to ride_path(@ride, anchor: "div-chat")
+     if @participant.save
+       redirect_to ride_path(@ride, anchor: "div-chat")
+     end
   end
 
   private
