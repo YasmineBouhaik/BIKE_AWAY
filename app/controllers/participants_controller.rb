@@ -12,11 +12,10 @@ class ParticipantsController < ApplicationController
 
   def voted
      @ride = Ride.find(params[:ride_id])
-     @participant = @ride.participants.find_by(user: current_user)
-     @participant.voted = true
-     if @participant.save
-       redirect_to ride_path(@ride, anchor: "div-chat")
-     end
+     @participant = @ride.participants.find_by(user: current_user )
+     @participant.voted = @participant.voted == false
+     @participant.save
+     redirect_to ride_path(@ride, anchor: "div-chat")
   end
 
   private
