@@ -12,6 +12,7 @@ import { addStepToItinerary, removeStepFromItinerary } from '../components/addst
 import { initMapbox } from '../plugins/init_mapbox';
 import { btnClick } from '../components/choose_ride_btn';
 import { heartClick } from '../components/vote_btn';
+import { clickCategoryBtn } from '../components/categories'
 
 Rails.start()
 Turbolinks.start()
@@ -40,7 +41,7 @@ document.addEventListener('turbolinks:load', () => {
   removeStepFromItinerary();
   
   heartClick();
-
+ clickCategoryBtn();
 
 
 });
