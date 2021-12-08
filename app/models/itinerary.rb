@@ -7,4 +7,6 @@ class Itinerary < ApplicationRecord
   validates :km, presence: true
   validates :category, presence: true, inclusion: { in: ["family", "road bike", "mountain bike"] }
   validates :description, presence: true
+
+  CATEGORIES = ["family", "road bike", "mountain bike"]
 end
