@@ -1,14 +1,13 @@
 <div class="container">
   <div class="d-flex justify-content-between my-5">
     <h2><%= @itinerary.title %></h2>
-    <%= link_to "Edit", edit_itinerary_path(@itinerary), class:"btn btn-Join"%>
   </div>
   <div class="edit-map-container container">
     <%= render 'shared/map' %>
   </div>
   <div class="row">
     <div class="col-6 d-flex justify-content-around mt-3">
-      <div class="grey-box my-2">
+      <div class="grey-box p-2">
         <% if @itinerary.category == "family" %>
           <%= image_tag "family bike.png", class: "logo-category family-logo" %>
           <% elsif @itinerary.category == "road bike" %>
@@ -19,21 +18,20 @@
       </div>
     </div>
     <div class="col-6 d-flex justify-content-around mt-3">
-      <div class="grey-box my-2">
+      <div class="grey-box p-3">
         <p><%= @itinerary.km %> km </p>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col-6 d-flex justify-content-around">
-      <div class="grey-box my-2">
-        <p><%= Participant.count + 1 %></p>
-        <i class="fas fa-user-friends"></i>
+      <div class="grey-box my-4 p-3">
+        <p><i class="fas fa-user-friends"></i> <%= Participant.count + 1 %></p>
       </div>
     </div>
     <div class="col-6 d-flex justify-content-around">
-      <div class="grey-box my-2">
-        <p>Upvotes</p>
+      <div class="grey-box my-4 p-3">
+      <p> <%= @ride.participants.where(voted: true).count  %> <i class="heart-icon far fa-heart" ></i> </p>
       </div>
     </div>
   </div>
