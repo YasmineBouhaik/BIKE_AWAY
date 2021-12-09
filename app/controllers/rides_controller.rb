@@ -1,18 +1,16 @@
 class RidesController < ApplicationController
 
   def index
-    if params["range-1a"]
-      @max = params["range-1a"].to_i
-      @all_rides = Ride.all
-      @rides = []
-      @all_rides.each do |ride|
-        if ride.itinerary.km <= @max
-          @rides << ride
-        end
+    if params[:query].present?
+      @max = params[:query][:km].to_i
+
+      if params[:query][:km].present?
+        sql_query = " \ itineraries.title ILIKE :location AND itineraries.km <= :km "
+      else
+        sql_query = " \ itineraries.title ILIKE :location"
+
       end
-    elsif params[:query].present?
-      sql_query = " \ itineraries.title ILIKE :query \ "
-      @rides = Ride.joins(:itinerary).where(sql_query, query: "%#{params[:query]}%")
+      @rides = Ride.joins(:itinerary).where(sql_query, location: "%#{params[:query][:location]}%", km: @max)
     else
       @rides = Ride.all
     end

@@ -33,16 +33,19 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
   // map
+
+import { rangeChange } from '../components/search';
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   console.log("hello")
   initMapbox();
   loadDynamicBannerText();
-  removeStepFromItinerary();
 
-  // heartClick();
-  clickCategoryBtn();
+  // heartClick(); 
+ clickCategoryBtn();
+ rangeChange();
   switchNew();
+
 
 });
