@@ -49,29 +49,29 @@
     </div>
 <div></div>
 
-<% if @ride.participants.one? { |participant| participant.user  == current_user } %>
-  <div class = "chat", id= "div-chat">
-    <h2><strong>You've been added to this trip with success !</strong> &#128512; </h2>
+  <% if @ride.participants.one? { |participant| participant.user  == current_user } %>
+    <div class = "chat", id= "div-chat">
+      <h2><strong>You've been added to this trip with success !</strong> &#128512; </h2>
 
-    <div class = btn-heart-div>
-      <% if @participant.voted? %>
-        <%= link_to ride_voted_path(@ride, format:'js'),method: :patch, remote: true, class: "btn-heart" do %>
-          <i class="heart-icon fas fa-heart fa-2x" style="color: #FF4C4C "></i>
+      <div class = btn-heart-div>
+        <% if @participant.voted? %>
+          <%= link_to ride_voted_path(@ride, format:'js'),method: :patch, remote: true, class: "btn-heart" do %>
+            <i class="heart-icon fas fa-heart fa-2x" style="color: #FF4C4C "></i>
+          <% end  %>
+        <% else %>
+          <%= link_to ride_voted_path(@ride, format:'js'),method: :patch, remote: true, class: "btn-heart" do %>
+            <i class="heart-icon far fa-heart fa-2x" style="color:  grey " ></i>
+          <% end  %>
         <% end  %>
-      <% else %>
-        <%= link_to ride_voted_path(@ride, format:'js'),method: :patch, remote: true, class: "btn-heart" do %>
-          <i class="heart-icon far fa-heart fa-2x" style="color:  grey " ></i>
-        <% end  %>
-      <% end  %>
 
+      </div>
+      <div class = "messages">
+        <p><strong>kevin:</strong> should we start at 8 pm ?</p>
+      </div>
     </div>
-    <div class = "messages">
-      <p><strong>kevin:</strong> should we start at 8 pm ?</p>
-    </div>
-  </div>
 
-<% else  %>
-  <div class="text-center">
-    <%= link_to "Choose this ride", ride_participants_path(@ride), class:"btn-choose-ride btn btn-Join", method: :post, remote:true%>
-  </div>
-<% end  %>
+  <% else  %>
+    <div class="text-center">
+      <%= link_to "Choose this ride", ride_participants_path(@ride), class:"btn-choose-ride btn btn-Join", method: :post, remote:true%>
+    </div>
+  <% end  %>
