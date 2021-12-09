@@ -1,6 +1,17 @@
-.grey-box{
-  background-color: $light-grey;
-  width: 100px;
-  height: 45px;
+.grey-box {
+  background-color: white;
+  width: 126px;
+  height: 70px;
   text-align: center;
+  border-radius: 4px;
+  opacity: 0.8;
+  box-shadow:  1px 1px 1px $green-4;
+  font-size: 20px;
+}
+.votes{
+  padding-top: 15px;
+}
+
+.fas {
+  color: $green-5;
 }

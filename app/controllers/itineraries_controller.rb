@@ -3,6 +3,13 @@ class ItinerariesController < ApplicationController
   def show
     @itinerary = Itinerary.find(params[:id])
     @ride = Ride.new              # empty shell for creating rides in itinerary/show
+    display_step                  # calling the steps from current itinerary
+    @markers = @steps.geocoded.map do |step|
+      {
+        lat: step.latitude,
+        lng: step.longitude
+      }
+    end
   end
 
   def new
@@ -12,9 +19,15 @@ class ItinerariesController < ApplicationController
   def create
     @itinerary = Itinerary.new(params_itinerary)
     @itinerary.user = current_user
-
-    if @itinerary.save
-      redirect_to itinerary_path(@itinerary)
+    @steps = []
+    unless params[:steps] == nil
+      params[:steps].each { |step| @steps<<step[:address] }
+      if @itinerary.save
+        create_steps
+        redirect_to itinerary_path(@itinerary)
+      else
+        render :new
+      end
     else
       render :new
     end
@@ -22,6 +35,13 @@ class ItinerariesController < ApplicationController
 
   def edit
     @itinerary = Itinerary.find(params[:id])
+    display_step                  # calling the steps from current itinerary
+    @markers = @steps.geocoded.map do |step|
+      {
+        lat: step.latitude,
+        lng: step.longitude
+      }
+    end
   end
 
   def update
@@ -48,6 +68,17 @@ class ItinerariesController < ApplicationController
   private
 
   def params_itinerary
-    params.require(:itinerary).permit(:km, :category, :description, :title)
+    params.require(:itinerary).permit(:km, :category, :description, :title, steps_attributes:[:address, :itinerary_id])
   end
+
+  def create_steps
+    @steps.each do |step|
+      @step = Step.create(address: step, itinerary_id: @itinerary.id)
+    end
+  end
+
+  def display_step
+    @steps = Step.where(itinerary_id: @itinerary.id)
+  end
+
 end

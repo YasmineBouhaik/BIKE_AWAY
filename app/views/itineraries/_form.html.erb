@@ -1,9 +1,40 @@
 <div class="container">
   <%= simple_form_for(@itinerary) do |f| %>
-    <%= f.input :km %>
-    <%= f.input :category, as: :radio_buttons, collection: ["family", "road bike", "mountain bike"] %>
-    <%= f.input :description %>
-    <%= f.input :title, class: "title" %>
-    <%= f.submit class:"btn btn-success" %>
+    <div class="new-part-one">
+      <%= f.input :title %>
+      <%= render 'shared/map' %>
+      <input type="text" id="input" >
+      <input type="button" value="Add step" id="addstep">
+      <ol class="hidden-form"></ol>
+      <% unless @steps.nil? %>
+        <ol>
+        <% @steps.each do |step| %>
+          <li><%= step.address %>
+            <%= link_to step_path(step), method: :delete do %>
+            <i class="fas fa-trash"></i>
+            <% end %>
+          </li>
+        <% end  %>
+        </ol>
+      <% end %>
+    </div>
+    <p class="btn btn-primary btn-block switch-new">Suivant</p>
+    <div class="new-part-two d-none">
+      <%= f.input :category, as: :radio_buttons,
+
+                            collection_wrapper_tag: 'div',
+                            collection_wrapper_class: 'category-wrapper',
+                            item_wrapper_class: 'category-item d-none',
+                            input_html: {class: 'category-selector'},
+                            collection: Itinerary::CATEGORIES %>
+      <div class = "category-logos">
+        <%= image_tag "family bike.png", class: "logos logo-category", data: {id: '0'} %>
+        <%= image_tag "road bike.png", class: "logos logo-category ", data: {id: '1'} %>
+        <%= image_tag "mountain bike.png", class: "logos logo-category", data: {id: '2'} %>
+      </div>
+      <%= f.input :km %>
+      <%= f.input :description %>
+      <%= f.submit class:"btn btn-Join" %>
+    </div>
   <% end %>
 </div>

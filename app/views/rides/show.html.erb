@@ -1,44 +1,77 @@
 <div class="container">
-  <%= render 'shared/map' %>
-  <div class="d-flex justify-content-between">
+  <div>
+    <%= render 'shared/map' %>
+  </div>
+<div class="container mt-3">
+    <div class="text-center align-self-start pt-20">
     <h2><%= @ride.itinerary.title %></h2>
+  <div class="d-flex align-self-start">
   </div>
-  <div class="card">
+    </div>
+  <div class="card-description">
     <br>
-    <br>
-    ceci est une map
-    <br>
+      <p><%= @ride.itinerary.description %></p>
     <br>
   </div>
-  <div class="row">
-    <div class="col-6 d-flex justify-content-around">
-      <div class="grey-box my-2">
-        <p><%= @ride.itinerary.category %></p>
+<div class="container">
+    <div class="row justify-content-center ">
+      <div class="col-6 d-flex justify-content-around">
+        <div class="grey-box p-2">
+           <% if @ride.itinerary.category == "family" %>
+              <%= image_tag "family bike.png", class: "logo-category family-logo" %>
+              <% elsif @ride.itinerary.category == "road bike" %>
+              <%= image_tag "road bike.png", class: "logo-category" %>
+              <% elsif @ride.itinerary.category == "mountain bike" %>
+              <%= image_tag "mountain bike.png", class: "logo-category" %>
+              <% end %>
+        </div>
+      </div>
+      <div class="col-6 d-flex justify-content-around">
+        <div class="grey-box p-3">
+          <p><%= @ride.itinerary.km %> km </p>
+        </div>
       </div>
     </div>
-    <div class="col-6 d-flex justify-content-around">
-      <div class="grey-box my-2">
-        <p><%= @ride.itinerary.km %></p>
+    <div class="row justify-content-center ">
+      <div class="col-6 d-flex justify-content-around">
+        <div class="grey-box my-4 p-3">
+        <p><i class="fas fa-user-friends"></i> <%= Participant.where(ride: @ride).count + 1%></p>
+        </div>
+      </div>
+      <div class="col-6 d-flex justify-content-around">
+        <div class="grey-box p-2 my-4">
+            <p class = "votes">
+              <%= @ride.participants.where(voted: true).count  %>
+              <i class="heart-icon far fa-heart" ></i>
+            </p>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-6 d-flex justify-content-around">
-      <div class="grey-box my-2">
-        <p>Total participants</p>
-      </div>
+<div></div>
+
+<% if @ride.participants.one? { |participant| participant.user  == current_user } %>
+  <div class = "chat", id= "div-chat">
+    <h2><strong>You've been added to this trip with success !</strong> &#128512; </h2>
+
+    <div class = btn-heart-div>
+      <% if @participant.voted? %>
+        <%= link_to ride_voted_path(@ride),method: :patch, remote: true, class: "btn-heart" do %>
+          <i class="heart-icon fas fa-heart fa-2x" style="color: #FF4C4C "></i>
+        <% end  %>
+      <% else %>
+        <%= link_to ride_voted_path(@ride),method: :patch, remote: true, class: "btn-heart" do %>
+          <i class="heart-icon far fa-heart fa-2x" style="color:  grey " ></i>
+        <% end  %>
+      <% end  %>
+
     </div>
-    <div class="col-6 d-flex justify-content-around">
-      <div class="grey-box my-2">
-        <p>Upvotes</p>
-      </div>
+    <div class = "messages">
+      <p><strong>kevin:</strong> should we start at 8 pm ?</p>
     </div>
-  </div>
-  <div class="text-center">
-    <%= link_to "Choose this ride", ride_path(@ride), class:"btn-choose-ride btn btn-success"%>
   </div>
 
-  <div class = "chat">
-    <p><strong>kevin:</strong> should we start at 8 pm ?</p>
+<% else  %>
+  <div class="text-center">
+    <%= link_to "Choose this ride", ride_participants_path(@ride), class:"btn-choose-ride btn btn-Join", method: :post, remote:true%>
   </div>
-</div>
+<% end  %>

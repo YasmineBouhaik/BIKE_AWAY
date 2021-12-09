@@ -1,1 +1,28 @@
 // Specific CSS for your home-page
+.btn-home-join {
+  color: white;
+  font-size: 22px;
+  background-color: $green-5;
+  border: 2px solid white;
+  box-shadow: 0 0 2px white;
+  padding: 8px 26px;
+  border-radius: 60px;
+  margin-top: 25px;
+  }
+
+.btn-home-create {
+  color: $green-5;
+  font-size: 14px;
+  background-color: $green-3;
+  border: 1px solid $green-5;
+  box-shadow: 0 0 2px $green-5;
+  padding: 10px 10px;
+  border-radius: 30px;
+  font-weight: lighter;
+  margin-bottom: 20px;
+}
+
+.black {
+background-color: black;
+height: 28vh;
+}

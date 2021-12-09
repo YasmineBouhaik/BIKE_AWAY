@@ -1,18 +1,24 @@
 // Import page-specific CSS files here.
 @import "home";
 @import "profile";
-
-
+@import "new_itinerary";
 
 body {
   background-color: $green-1;
 }
 
 h1, h2, h3, h4, p {
-  color: $green-5
+  color: $oil-green;
+  font-weight: 600;
 }
 
 h1 {
   text-align: center;
+  font-size: 35px;
 }
-
+h2{
+  font-size: 30px;
+}
+h3{
+  font-size: 25px;
+}

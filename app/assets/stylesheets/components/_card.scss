@@ -1,53 +1,83 @@
 .logo-category{
   height: 50px;
+  width: 50px
+
 }
-
 .itinerary-card {
-
-  height: 230px;
+  height: 200px;
   background-color: $green-4;
   border-radius: 20px;
   .card-title h3{
-    color: $green-1;
-    font-weight: bold;
+    color: $green-5;
+    font-size: 25px;
   }
   .card-text p{
     font-size: 20px;
     padding-left: 10px;
-    color: $green-1;
+    color: $green-4;
   }
-
 }
 .details-button{
   text-align: end;
-  margin: 10px 30px;
+  margin: 20px 20px 15px;
 }
 
 .card {
-  background-color: #A4C3B2;
+  background-color: white;
   color: #F6FFF8;
   border-radius: 20px;
+  text-align: center;
+  border-color: $oil-green;
+  
 }
 
 
 .details-button .button{
-  font-weight: bold;
-  border-radius: 30px;
+  font-weight: 400;
+  border-radius: 10px;
   text-decoration: none;
-  color: $green-4;
-  padding: 10px 16px;
+  color: $oil-green;
+  padding: 7px 20px;
   background-color: $green-2;
+  opacity: 0.8;
+  border: 2px solid $oil-green;
 }
 
+.details-button .button:active{
+  background-color: $green-3;
+}
 .ride-card h3 {
-  color: #F6FFF8;
-  font-weight: bold;
+  color: $oil-green;
+  font-weight: 600;
   font-size: 1rem;
-  height: 50px;
+  height: 30px;
   font-size: 20px;
+
 }
 
 .ride-card p {
-  color: #F6FFF8;
+  color: $oil-green;
+  width: 60px;
+}
+
+.card-description {
+  background-color: white;
+  text-align: center;
+  border-radius: 4px;
+  margin: 20px;
+  padding: 23px;
+  box-shadow: 1px 1px 1px $green-4;
+}
+
+.card-date {
+  background-color: white;
+  text-align: center;
+  border-radius: 4px;
+  padding: 10px;
+  box-shadow: 0px 0px 1px $green-4;
   font-size: 20px;
+  width: 100%;
+}
+#ride-card-date{
+  width: fit-content;
 }

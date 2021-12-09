@@ -8,9 +8,12 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import { loadDynamicBannerText } from '../components/banner';
-import mapboxgl from 'mapbox-gl';
-
-
+import { addStepToItinerary, removeStepFromItinerary } from '../components/addstep';
+import { initMapbox } from '../plugins/init_mapbox';
+import { btnClick } from '../components/choose_ride_btn';
+import { heartClick } from '../components/vote_btn';
+import { clickCategoryBtn } from '../components/categories'
+import { switchNew } from '../components/switch_new'
 
 Rails.start()
 Turbolinks.start()
@@ -29,15 +32,19 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
   // map
-  import { initMapbox } from '../plugins/init_mapbox';
+
+import { rangeChange } from '../components/search';
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
 
   initMapbox();
   loadDynamicBannerText();
-});
-
-
-
   
+  heartClick();
+ clickCategoryBtn();
+ rangeChange();
+  switchNew();
+
+
+});

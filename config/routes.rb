@@ -2,11 +2,12 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  get "profile", to: "pages#profile"
+  get "profile/:id", to: "pages#profile", as: :profile
 
   resources :rides, only: [:index, :show] do
-    resources :participants, only: :create
+    resources :participants, only: :create 
     resources :messages, only: :create
+    patch "voted", to: 'participants#voted'
   end
 
   resources :itineraries do

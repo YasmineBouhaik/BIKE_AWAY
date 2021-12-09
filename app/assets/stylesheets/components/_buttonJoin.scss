@@ -1,9 +1,20 @@
 .btn-Join {
-  color: white;
-  background-color: $green-5;
-  border: 1px solid #4A4A4A;
+  color: #FBF3E4;
+  background-color: $oil-green;
+  border: 1px;
   padding: 8px 24px;
-  border-radius: 50px;
+  border-radius: 10px;
+  font-size: 20px;
   font-weight: lighter;
+  margin-top: 30px;
   opacity: 0.8;
+}
+
+.d-flex {
+  p {
+    margin: 0;
+  }
+  .btn-Join {
+    margin: 0;
+  }
 }
