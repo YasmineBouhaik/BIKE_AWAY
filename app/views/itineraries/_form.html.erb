@@ -1,13 +1,13 @@
 <div class="container">
   <%= simple_form_for(@itinerary) do |f| %>
-    <div class="new-part-one">
-      <%= f.input :title %>
+    <div class="new-part-one mt-3">
+      <%= f.input :title, label: false, placeholder: "Title" %>
       <%= render 'shared/map' %>
       <input type="text" id="input" onfocus="this.value=''">
       <input type="button" value="Add step" id="addstep">
       <div class="hidden-form"></div>
     </div>
-    <p class="btn btn-primary switch-new">Suivant</p>
+    <p class="btn btn-primary switch-new mt-3">Suivant</p>
     <div class="new-part-two d-none">
       <%= f.input :category, as: :radio_buttons,
                             collection_wrapper_tag: 'div',
@@ -20,7 +20,7 @@
         <%= image_tag "road bike.png", class: "logos logo-category ", data: {id: '1'} %>
         <%= image_tag "mountain bike.png", class: "logos logo-category", data: {id: '2'} %>
       </div>
-      <%= f.input :description %>
+      <%= f.input :description, label: false, placeholder: "Description" %>
       <%= f.submit class:"btn btn-Join" %>
     </div>
   <% end %>
