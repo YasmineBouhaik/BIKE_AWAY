@@ -31,6 +31,8 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
   // map
+
+import { rangeChange } from '../components/search';
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
@@ -39,9 +41,10 @@ document.addEventListener('turbolinks:load', () => {
   loadDynamicBannerText();
   addStepToItinerary();
   removeStepFromItinerary();
-  
+
   heartClick();
  clickCategoryBtn();
 
+ rangeChange();
 
 });

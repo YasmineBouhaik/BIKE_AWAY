@@ -5,11 +5,12 @@
 
     <div class="search-form-control form-group">
     <%= form_tag rides_path, method: :get do %>
-      <%= text_field_tag :query,
-      params[:query],
+      <%= text_field_tag 'query[location]',
+      params[:query][:location],
       class: "form-control",
       placeholder: "Find a location"
   %>
+    <%= hidden_field_tag 'query[km]', 100 %>
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
     </div>
@@ -20,8 +21,7 @@
   <div class="d-flex align-items-center justify-content-between">
       <label for="range-1a"><p>Km/max:</p></label>
       <input type="range" value= "<%= params ? params["range-1a"] : "250" %>" name="range-1a" id="range-1a" min="1" max="500" oninput="this.nextElementSibling.value = this.value">
-      <output><%= params["range-1a"] %></output>
-      <input type="submit" value="Go !" class="btn btn-Join">
+      <output class="ranger"> <%= params["range-1a"] %></output>
   </div>
 </form>
 
