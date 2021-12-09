@@ -1,7 +1,7 @@
 <div class="container">
   <%= simple_form_for(@itinerary) do |f| %>
     <div class="new-part-one mt-3">
-      <%= f.input :title %>
+      <%= f.input :title, label: false, placeholder: "Title" %>
       <%= render 'shared/map' %>
       <input type="text" id="input" onfocus="this.value=''">
       <input type="button" value="Add step" id="addstep">
@@ -20,8 +20,9 @@
         <%= image_tag "road bike.png", class: "logos logo-category ", data: {id: '1'} %>
         <%= image_tag "mountain bike.png", class: "logos logo-category", data: {id: '2'} %>
       </div>
-      <%= f.input :km %>
-      <%= f.input :description %>
+      <div class="form-km-descr mt-4"></div>
+      <%= f.input :km, label: false, placeholder: "Km" %>
+      <%= f.input :description, label: false, placeholder: "Description" %>
       <%= f.submit class:"btn btn-Join" %>
     </div>
   <% end %>
