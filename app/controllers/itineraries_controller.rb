@@ -24,6 +24,14 @@ class ItinerariesController < ApplicationController
       params[:steps].each { |step| @steps<<step[:address] }
       if @itinerary.save
         create_steps
+        @itinerary.km = 0
+        n = 0
+        (@steps.count - 1).times do
+          distance = Geocoder::Calculations.distance_between([@steps_object[n].latitude, @steps_object[n].longitude], [@steps_object[n+1].latitude, @steps_object[n+1].longitude], options: {units: :km})
+          @itinerary.km += distance
+          n += 1
+        end
+        @itinerary.save
         redirect_to itinerary_path(@itinerary)
       else
         render :new
@@ -72,8 +80,10 @@ class ItinerariesController < ApplicationController
   end
 
   def create_steps
+    @steps_object = []
     @steps.each do |step|
       @step = Step.create(address: step, itinerary_id: @itinerary.id)
+      @steps_object << @step
     end
   end
 
