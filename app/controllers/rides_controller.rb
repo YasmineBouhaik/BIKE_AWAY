@@ -36,6 +36,7 @@ class RidesController < ApplicationController
     @itinerary = Itinerary.find(params[:itinerary_id])
     @ride.itinerary = @itinerary
     if @ride.save
+      Participant.create(user: current_user, ride: @ride)
       redirect_to itinerary_path(@itinerary)
     else
       render :new
