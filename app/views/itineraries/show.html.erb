@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="d-flex justify-content-between my-5">
+  <div class="d-flex justify-content-center mt-5 mb-2">
     <h2><%= @itinerary.title %></h2>
   </div>
   <div class="edit-map-container container">
@@ -51,7 +51,7 @@
   <br>
   <h3>Create Ride</h3>
   <%= simple_form_for([@itinerary, @ride]) do |f| %>
-    <%= f.input :date , html5: true %>
+    <%= f.input :date, html5: true %>
     <%= f.submit class:"btn btn-Join mb-3 btn-block" %>
   <%end  %>
 </div>
