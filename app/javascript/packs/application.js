@@ -41,7 +41,7 @@ document.addEventListener('turbolinks:load', () => {
   loadDynamicBannerText();
   removeStepFromItinerary();
 
-//  heartClick();
+  // heartClick();
   clickCategoryBtn();
   switchNew();
 
