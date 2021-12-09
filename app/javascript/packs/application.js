@@ -19,12 +19,6 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-// confirmation
-//= require jquery3
-//= require popper
-//= require bootstrap
-//= require data-confirm-modal
-
 //= require jquery
 //= require jquery_ujs 
 // ----------------------------------------------------
