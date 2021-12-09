@@ -15,7 +15,7 @@
   <div class = "row">
     <% @itineraries.each do |itinerary|  %>
     <div class="itinerary-card-column col-sm-12 col-lg-4">
-      <div class = "itinerary-card card p-3 mb-4 ">
+      <div class = "card pb-1 pt-3 px-3 mb-4">
         <div class = "card-title d-flex align-items justify-content-arround">
           <%= image_tag itinerary.user.url, alt: "user image", class: "avatar mr-3" %>
           <h3> <%= itinerary.title %> </h3>
@@ -29,9 +29,8 @@
               <%= image_tag "mountain bike.png", class: "logo-category" %>
               <% end %>
           </p>
-          <p> <%= itinerary.km %> km </p>
+          <p id = "itinirary-km"> <%= itinerary.km %> km </p>
         </div>
-        <br>
         <div class = "details-button ">
           <%= link_to "details", itinerary_path(itinerary), class: "button" %>
         </div>

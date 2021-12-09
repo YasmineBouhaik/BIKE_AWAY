@@ -2,16 +2,15 @@
 <div class = "top-div py-3">
   <h1>Rides</h1>
 </div>
-
-    <div class="search-form-control form-group">
+  <div class="search-form-control form-group">
     <%= form_tag rides_path, method: :get do %>
       <%= text_field_tag :query,
       params[:query],
       class: "form-control",
       placeholder: "Find a location"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
     </div>
   </form>
 
