@@ -12,6 +12,20 @@
   }
 #input {
   margin-top: 16px;
+  margin-bottom: 8px;
   border-radius: 8px;
   width: 65%;
+}
+
+.hidden-form {
+  .fas {
+    padding-left: 16px;
+    color: #3FB1CE;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 4px;
+  }
+  p {
+    margin-bottom: 6px;
+  }
 }

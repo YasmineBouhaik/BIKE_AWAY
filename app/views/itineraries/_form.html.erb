@@ -3,22 +3,11 @@
     <div class="new-part-one">
       <%= f.input :title %>
       <%= render 'shared/map' %>
-      <input type="text" id="input" >
+      <input type="text" id="input" onfocus="this.value=''">
       <input type="button" value="Add step" id="addstep">
-      <ol class="hidden-form"></ol>
-      <% unless @steps.nil? %>
-        <ol>
-        <% @steps.each do |step| %>
-          <li><%= step.address %>
-            <%= link_to step_path(step), method: :delete do %>
-            <i class="fas fa-trash"></i>
-            <% end %>
-          </li>
-        <% end  %>
-        </ol>
-      <% end %>
+      <div class="hidden-form"></div>
     </div>
-    <p class="btn btn-primary btn-block switch-new">Suivant</p>
+    <p class="btn btn-primary switch-new">Suivant</p>
     <div class="new-part-two d-none">
       <%= f.input :category, as: :radio_buttons,
                             collection_wrapper_tag: 'div',
