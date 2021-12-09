@@ -13,6 +13,7 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { btnClick } from '../components/choose_ride_btn';
 import { heartClick } from '../components/vote_btn';
 import { clickCategoryBtn } from '../components/categories'
+import { switchNew } from '../components/switch_new'
 
 Rails.start()
 Turbolinks.start()
@@ -37,11 +38,10 @@ document.addEventListener('turbolinks:load', () => {
 
   initMapbox();
   loadDynamicBannerText();
-  addStepToItinerary();
   removeStepFromItinerary();
-  
-  heartClick();
- clickCategoryBtn();
 
+  heartClick();
+  clickCategoryBtn();
+  switchNew();
 
 });
