@@ -17,7 +17,7 @@ class ParticipantsController < ApplicationController
      @participant = @ride.participants.find_by(user: current_user)
      @participant.voted = @participant.voted == false
      @participant.save
-     redirect_to ride_path(@ride, anchor: "div-chat")
+     redirect_to ride_path(@ride)
   end
 
   private
