@@ -22,7 +22,7 @@ const addStepToItinerary = (map) => {
   const addstep = document.querySelector("#addstep");
   if (addstep) {
     addstep.addEventListener("click", (event) => {
-      hiddenform.insertAdjacentHTML("beforeend", `<p id="${input.value}"> <i class="fas fa-map-marker-alt"> ${input.value} </i> <input type="hidden" name="steps[][address]" value="${input.value}" ></p>`);
+      hiddenform.insertAdjacentHTML("beforeend", `<p id="${input.value}"> <i class="fas fa-map-marker-alt"></i> ${input.value} <input type="hidden" name="steps[][address]" value="${input.value}" ></p>`);
       fetchCoordinates(input.value, map);
       // removeStepFromItinerary(); active it if we want to remove step while creating itinerary
     });
