@@ -34,6 +34,7 @@ const initMapbox = () => {
     fitMapToMarkers(map, markers);
     }
     addStepToItinerary(map);
+
   }
 
 };
