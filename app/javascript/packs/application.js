@@ -19,7 +19,8 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-
+//= require jquery
+//= require jquery_ujs 
 // ----------------------------------------------------
 // Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
@@ -37,11 +38,11 @@ import { rangeChange } from '../components/search';
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
-
+  console.log("hello")
   initMapbox();
   loadDynamicBannerText();
-  
-  heartClick();
+
+  // heartClick(); 
  clickCategoryBtn();
  rangeChange();
   switchNew();
