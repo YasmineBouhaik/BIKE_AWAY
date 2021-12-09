@@ -1,12 +1,26 @@
+
+
+
+
+
 <div class="container">
   <div>
     <%= render 'shared/map' %>
   </div>
 <div class="container mt-3">
-    <div class="text-center align-self-start pt-20">
-    <h2><%= @ride.itinerary.title %></h2>
-  <div class="d-flex align-self-start">
-  </div>
+    <div class="d-flex justify-content-between">
+      <h2><%= @ride.itinerary.title %></h2>
+      <div class = btn-heart-div>
+        <% if @participant && @participant.voted? %>
+          <%= link_to ride_voted_path(@ride, format:'js'),method: :patch, remote: true, class: "btn-heart" do %>
+            <i class="heart-icon fas fa-heart fa-2x" style="color: #FF4C4C "></i>
+          <% end  %>
+        <% else %>
+          <%= link_to ride_voted_path(@ride, format:'js'),method: :patch, remote: true, class: "btn-heart" do %>
+            <i class="heart-icon far fa-heart fa-2x" style="color:  grey " ></i>
+          <% end  %>
+        <% end  %>
+      </div>
     </div>
   <div class="card-description">
     <br>
@@ -47,26 +61,11 @@
         </div>
       </div>
     </div>
-<div></div>
 
   <% if @ride.participants.one? { |participant| participant.user  == current_user } %>
     <div class = "chat", id= "div-chat">
-      <h2><strong>You've been added to this trip with success !</strong> &#128512; </h2>
-
-      <div class = btn-heart-div>
-        <% if @participant.voted? %>
-          <%= link_to ride_voted_path(@ride, format:'js'),method: :patch, remote: true, class: "btn-heart" do %>
-            <i class="heart-icon fas fa-heart fa-2x" style="color: #FF4C4C "></i>
-          <% end  %>
-        <% else %>
-          <%= link_to ride_voted_path(@ride, format:'js'),method: :patch, remote: true, class: "btn-heart" do %>
-            <i class="heart-icon far fa-heart fa-2x" style="color:  grey " ></i>
-          <% end  %>
-        <% end  %>
-
-      </div>
       <div class = "messages">
-        <p><strong>kevin:</strong> should we start at 8 pm ?</p>
+        <p><strong>Start a conversation with your partners ...</p>
       </div>
     </div>
 
