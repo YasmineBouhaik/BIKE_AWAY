@@ -5,6 +5,8 @@ class ParticipantsController < ApplicationController
     @participant.ride = @ride
     @participant.user = current_user
     if @participant.save!
+      flash[:notice] = "You've been added to this trip with success !"
+
       redirect_to ride_path(@ride)
     end
 
