@@ -37,9 +37,8 @@ document.addEventListener('turbolinks:load', () => {
 
   initMapbox();
   loadDynamicBannerText();
-  addStepToItinerary();
   removeStepFromItinerary();
-  
+
   heartClick();
  clickCategoryBtn();
 
