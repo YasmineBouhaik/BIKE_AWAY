@@ -10,6 +10,9 @@ const fetchCoordinates = (step, map) => {
       new mapboxgl.Marker()
         .setLngLat(marker)
         .addTo(map);
+      const bounds = new mapboxgl.LngLatBounds();
+      bounds.extend(marker);
+      map.fitBounds(bounds, { padding: 70, maxZoom: 8 });
     });
 };
 
@@ -19,9 +22,9 @@ const addStepToItinerary = (map) => {
   const addstep = document.querySelector("#addstep");
   if (addstep) {
     addstep.addEventListener("click", (event) => {
-      hiddenform.insertAdjacentHTML("beforeend", `<li id="${input.value}" class="city"> ${input.value} <input type="hidden" name="steps[][address]" value="${input.value}" ></li>`);
+      hiddenform.insertAdjacentHTML("beforeend", `<div id="${input.value}" class="city"> ${input.value} <input type="hidden" name="steps[][address]" value="${input.value}" ></div>`);
       fetchCoordinates(input.value, map);
-      removeStepFromItinerary();
+      // removeStepFromItinerary(); active it if we want to remove step while creating itinerary
     });
   }
 }
