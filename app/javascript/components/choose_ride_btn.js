@@ -2,7 +2,7 @@ const displayChat = (event) => {
   event.preventDefault();
   const chat = document.querySelector(".chat");
   if (chat){
-    console.log("hello");
+    
     chat.style.display = "block";
   }
 }
