@@ -4,7 +4,6 @@ class Itinerary < ApplicationRecord
   has_many :rides, dependent: :destroy
 
   validates :title, presence: true
-  validates :km, presence: true
   validates :category, presence: true, inclusion: { in: ["family", "road bike", "mountain bike"] }
   validates :description, presence: true
 
