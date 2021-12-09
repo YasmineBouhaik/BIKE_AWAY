@@ -7,20 +7,21 @@
       <input type="button" value="Add step" id="addstep">
       <div class="hidden-form"></div>
     </div>
-    <p class="btn btn-primary switch-new mt-3">Suivant</p>
+    <p class="btn btn-primary switch-new my-3">Suivant</p>
     <div class="new-part-two d-none">
       <%= f.input :category, as: :radio_buttons,
                             collection_wrapper_tag: 'div',
                             collection_wrapper_class: 'category-wrapper',
                             item_wrapper_class: 'category-item d-none',
-                            input_html: {class: 'category-selector'},
+                            input_html: {class: 'category-selector', label: false},
+                            legend_tag: false,
                             collection: Itinerary::CATEGORIES %>
       <div class = "category-logos">
         <%= image_tag "family bike.png", class: "logos logo-category", data: {id: '0'} %>
         <%= image_tag "road bike.png", class: "logos logo-category ", data: {id: '1'} %>
         <%= image_tag "mountain bike.png", class: "logos logo-category", data: {id: '2'} %>
       </div>
-      <div class="description-container mt-5">
+      <div class="description-container mt-5 text-center">
       <%= f.input :description, label: false, placeholder: "Description" %>
       <%= f.submit class:"btn btn-Join" %>
       </div>
