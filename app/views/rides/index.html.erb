@@ -18,10 +18,11 @@
 
 
 <form action ="/rides" method="get">
-  <div class="d-flex align-items-center justify-content-between">
+  <div class="d-flex align-items-center justify-content-around">
       <label for="range-1a"><p>Km/max:</p></label>
       <input type="range" value= "<%= params ? params["range-1a"] : "250" %>" name="range-1a" id="range-1a" min="1" max="500" oninput="this.nextElementSibling.value = this.value">
       <output class="ranger"> <%= params["range-1a"] %></output>
+
   </div>
 </form>
 
@@ -29,29 +30,31 @@
     <div class = "ride-card row">
       <% @rides.each do |ride|  %>
       <div class="col-sm-12 col-lg-4">
-        <div class = "card p-3 mb-4">
-          <div class = "card-title d-flex align-items justify-content-between">
+        <div class = "card pb-1 pt-3 px-3 mb-4">
+          <div class = "card-title d-flex align-items justify-content-arround">
             <%= link_to profile_path(ride.itinerary.user.id) do %>
               <%= image_tag ride.itinerary.user.url, alt: "user image", class: "avatar mr-3" %>
             <% end %>
-            <h3><strong><%= ride.itinerary.title %></strong></h3>
-          <div class = "card-text d-flex justify-content-around">
-            <p> <% if ride.itinerary.category == "family" %>
-              <%= image_tag "family bike.png", class: "logo-category" %>
-              <% elsif ride.itinerary.category == "road bike" %>
-              <%= image_tag "road bike.png", class: "logo-category" %>
-              <% elsif ride.itinerary.category == "mountain bike" %>
-              <%= image_tag "mountain bike.png", class: "logo-category" %>
-              <% end %>
-            </p>
+            <h3><%= ride.itinerary.title %></h3>
           </div>
+          <div class = "d-flex justify-content-around mb-2" >
+            <p id= "ride-card-date"> <%= ride.date.strftime("%B %d at %I") %> </p>
+            <p><%= ride.itinerary.km %>km </p>
           </div>
-          <div class = "d-flex justify-content-around" >
-            <h3> <%= ride.date.strftime("%B %d at %I") %> </h3>
-            <p><strong><%= ride.itinerary.km %>km </strong></p>
-          </div>
-          <div class = "details-button ">
-            <%= link_to "details", ride_path(ride), class: "button" %>
+          <div class= "d-flex justify-content-between">
+            <div class = "card-text d-flex justify-content-around">
+              <p> <% if ride.itinerary.category == "family" %>
+                <%= image_tag "family bike.png", class: "logo-category" %>
+                <% elsif ride.itinerary.category == "road bike" %>
+                <%= image_tag "road bike.png", class: "logo-category" %>
+                <% elsif ride.itinerary.category == "mountain bike" %>
+                <%= image_tag "mountain bike.png", class: "logo-category" %>
+                <% end %>
+              </p>
+            </div>
+            <div class = "details-button">
+              <%= link_to "details", ride_path(ride), class: "button" %>
+            </div>
           </div>
       </div>
       </div>

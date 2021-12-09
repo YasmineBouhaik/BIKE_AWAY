@@ -1,0 +1,17 @@
+#addstep{
+    width: 30%;
+    margin-left: 10px;
+    background-color: #FBF3E4;
+    border: 1px solid $oil-green;
+    color: $oil-green;
+    border-radius: 10px;
+    font-weight: 400;
+}
+#addstep:active{
+    background-color: #DFD8CA;
+  }
+#input {
+  margin-top: 16px;
+  border-radius: 8px;
+  width: 65%;
+}
